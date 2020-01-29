@@ -219,12 +219,12 @@
                           </ui:Click.Target>
                         </ui:Click>
                       </Sequence>
-                      <ui:UiElementExists DisplayName="Element Exists 'dialog Mensagem'" Exists="[popupErroCaptcha]" sap:VirtualizedContainerService.HintSize="990.666666666667,106" sap2010:WorkflowViewState.IdRef="UiElementExists_7">
+                      <ui:UiElementExists DisplayName="Element Exists 'Mensagem'" Exists="[popupErroCaptcha]" sap:VirtualizedContainerService.HintSize="990.666666666667,106" sap2010:WorkflowViewState.IdRef="UiElementExists_7">
                         <ui:UiElementExists.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="557ac310f20c6ef315102f97f5c234f4" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='Mensagem da página da web' /&gt;&lt;ctrl name='Mensagem da página da web' role='dialog' /&gt;" TimeoutMS="400" WaitForReady="NONE" />
                         </ui:UiElementExists.Target>
                       </ui:UiElementExists>
-                      <ui:UiElementExists DisplayName="Element Exists 'DirectUIHWND'" Exists="[popup1ErroCaptcha2]" sap:VirtualizedContainerService.HintSize="990.666666666667,106" sap2010:WorkflowViewState.IdRef="UiElementExists_6">
+                      <ui:UiElementExists DisplayName="Element Exists ''Mensagem'" Exists="[popup1ErroCaptcha2]" sap:VirtualizedContainerService.HintSize="990.666666666667,106" sap2010:WorkflowViewState.IdRef="UiElementExists_6">
                         <ui:UiElementExists.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="be7802c9b0362da7b22663736601a9f5" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='Mensagem da página da web' /&gt;&lt;ctrl name='Mensagem da página da web' role='dialog' /&gt;" TimeoutMS="400" WaitForReady="NONE" />
                         </ui:UiElementExists.Target>
@@ -417,7 +417,7 @@
                           </Sequence>
                         </If.Then>
                       </If>
-                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A '" sap:VirtualizedContainerService.HintSize="990.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Emissao de 2 via da certidao '" sap:VirtualizedContainerService.HintSize="990.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
                         <ui:Click.CursorPosition>
                           <ui:CursorPosition Position="Center">
                             <ui:CursorPosition.OffsetX>
@@ -439,7 +439,7 @@
                           </ui:Target>
                         </ui:Click.Target>
                       </ui:Click>
-                      <ui:UiElementExists DisplayName="Element Exists 'HTML '" Exists="[ErroDeConexao]" sap:VirtualizedContainerService.HintSize="990.666666666667,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                      <ui:UiElementExists DisplayName="Element Exists 'Teste de rede '" Exists="[ErroDeConexao]" sap:VirtualizedContainerService.HintSize="990.666666666667,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
                         <ui:UiElementExists.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="329555c7da7f678012b5ab85c7451f38" Selector="&lt;webctrl tag='HTML' /&gt;" TimeoutMS="30">
                             <ui:Target.WaitForReady>
@@ -459,7 +459,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists 'HTML '" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
+                            <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists 'Teste de rede '" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
                               <ui:UiElementExists.Target>
                                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="329555c7da7f678012b5ab85c7451f38" Selector="&lt;webctrl tag='HTML' /&gt;">
                                   <ui:Target.TimeoutMS>
@@ -498,7 +498,7 @@
                           </Sequence>
                         </If.Then>
                       </If>
-                      <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'P'" sap:VirtualizedContainerService.HintSize="990.666666666667,168" sap2010:WorkflowViewState.IdRef="GetOCRText_1">
+                      <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'Validade'" sap:VirtualizedContainerService.HintSize="990.666666666667,168" sap2010:WorkflowViewState.IdRef="GetOCRText_1">
                         <ui:GetOCRText.OCREngine>
                           <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
                             <ActivityFunc.Argument>
