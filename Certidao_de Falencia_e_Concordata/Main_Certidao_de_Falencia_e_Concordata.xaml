@@ -85,7 +85,7 @@
         <OutArgument x:TypeArguments="x:String">[out_Nome]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">Certidão de Falência e Concordata</InArgument>
+        <InArgument x:TypeArguments="x:String">["Certidão de Falência e Concordata "+validade]</InArgument>
       </Assign.Value>
     </Assign>
     <Assign sap:VirtualizedContainerService.HintSize="379,60" sap2010:WorkflowViewState.IdRef="Assign_4">
@@ -93,7 +93,7 @@
         <OutArgument x:TypeArguments="x:String">[out_Arquivo]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">["Certidão de Falência e Concordata"+validade]</InArgument>
+        <InArgument x:TypeArguments="x:String">[caminho_download]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Finalizar processo" sap:VirtualizedContainerService.HintSize="379,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Iexplore" />
