@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1246.66666666667,7234</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1246.66666666667,7458.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -69,20 +69,20 @@
       <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Insere o CNPJ e o captcha na pagina inicial.&#xD;&#xA;Pré-condition: Asset com CNPJ e interação com o usuario.&#xD;&#xA;Pos-condition:Arquivo da Certidão da receita Federal" DisplayName="Web" sap:VirtualizedContainerService.HintSize="1226.66666666667,7134" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap2010:Annotation.AnnotationText="Insere o CNPJ e o captcha na pagina inicial.&#xA;Pré-condition: Asset com CNPJ e interação com o usuario.&#xA;Pos-condition:Arquivo da Certidão da receita Federal" DisplayName="Web" sap:VirtualizedContainerService.HintSize="1226.66666666667,7398.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser BrowserType="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1184.66666666667,6980" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="http://servicos.receita.fazenda.gov.br/Servicos/certidao/CNDConjuntaInter/InformaNICertidao.asp?tipo=1">
+    <ui:OpenBrowser BrowserType="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1184.66666666667,7244.66666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="http://servicos.receita.fazenda.gov.br/Servicos/certidao/CNDConjuntaInter/InformaNICertidao.asp?tipo=1">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1150.66666666667,6881.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1150.66666666667,7146" sap2010:WorkflowViewState.IdRef="Sequence_15">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="SemRedeInicio" />
             </Sequence.Variables>
@@ -91,7 +91,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:UiElementExists DisplayName="Element Exists 'DIV  contentContainer'" Exists="[SemRedeInicio]" sap:VirtualizedContainerService.HintSize="1108.66666666667,106" sap2010:WorkflowViewState.IdRef="UiElementExists_8">
+            <ui:UiElementExists DisplayName="Element Exists 'Pagina fora do ar'" Exists="[SemRedeInicio]" sap:VirtualizedContainerService.HintSize="1108.66666666667,106" sap2010:WorkflowViewState.IdRef="UiElementExists_8">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="681276f9e54358bb881d656cf5fffe96" Selector="&lt;webctrl id='contentContainer' tag='DIV' /&gt;" TimeoutMS="30">
                   <ui:Target.WaitForReady>
@@ -100,7 +100,12 @@
                 </ui:Target>
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
-            <If Condition="[SemRedeInicio]" sap:VirtualizedContainerService.HintSize="1108.66666666667,256.666666666667" sap2010:WorkflowViewState.IdRef="If_3">
+            <If sap2010:Annotation.AnnotationText="pre-condition:SemRedeInicio=true &#xD;&#xA;pos-condition= click refresh" Condition="[SemRedeInicio]" sap:VirtualizedContainerService.HintSize="1108.66666666667,302" sap2010:WorkflowViewState.IdRef="If_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
               <If.Then>
                 <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click refresh" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_20" KeyModifiers="None" MouseButton="BTN_LEFT">
                   <ui:Click.CursorPosition>
@@ -126,19 +131,19 @@
                 </ui:Click>
               </If.Then>
             </If>
-            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'Emiss ode Page'" sap:VirtualizedContainerService.HintSize="1108.66666666667,6346.66666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="dfc03be37c7e0446d6b4e79b456fa246" Selector="&lt;html title='Emissão de Certidão Negativa' /&gt;">
+            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'Emiss ode Page'" sap:VirtualizedContainerService.HintSize="1108.66666666667,6566" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="dfc03be37c7e0446d6b4e79b456fa246" Selector="&lt;html title='Emissão de Certidão Negativa' /&gt;">
               <ui:BrowserScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence sap:VirtualizedContainerService.HintSize="1074.66666666667,6200.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <Sequence sap:VirtualizedContainerService.HintSize="1074.66666666667,6420" sap2010:WorkflowViewState.IdRef="Sequence_7">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1032.66666666667,6108.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1032.66666666667,6328" sap2010:WorkflowViewState.IdRef="Sequence_3">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="ui:GenericValue" Name="Captcha" />
                         <Variable x:TypeArguments="x:Boolean" Name="ErroDeConexao" />
@@ -154,13 +159,14 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="990.666666666667,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
-                      <Sequence sap:VirtualizedContainerService.HintSize="990.666666666667,740" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <Sequence sap2010:Annotation.AnnotationText="inserção de captcha e CNPJ&#xD;&#xA;pre-condition:Asset CNPJ, Inserção do captcha com ajuda do usuario&#xD;&#xA;pos-condition:click no link desejado&#xD;&#xA;" sap:VirtualizedContainerService.HintSize="990.666666666667,835.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="ui:GenericValue" Name="CNPJ" />
                         </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:InputDialog Label="{x:Null}" Options="{x:Null}" DisplayName="Input Captcha" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Title="Digite o Captcha">
@@ -230,7 +236,13 @@
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="be7802c9b0362da7b22663736601a9f5" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='Mensagem da página da web' /&gt;&lt;ctrl name='Mensagem da página da web' role='dialog' /&gt;" TimeoutMS="400" WaitForReady="NONE" />
                         </ui:UiElementExists.Target>
                       </ui:UiElementExists>
-                      <While sap:VirtualizedContainerService.HintSize="990.666666666667,1512" sap2010:WorkflowViewState.IdRef="While_4" Condition="[popupErroCaptcha Or popup1ErroCaptcha2]">
+                      <While sap2010:Annotation.AnnotationText="Pre-condition=(popupErroCapthca ou popup1ErroCaptcha2)=true&#xD;&#xA;Pos-condition=clica no botao fechar PopUp de erro,message box para inserção do Captchas" sap:VirtualizedContainerService.HintSize="990.666666666667,1557.33333333333" sap2010:WorkflowViewState.IdRef="While_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <While.Condition>[popupErroCaptcha Or popup1ErroCaptcha2]</While.Condition>
                         <Sequence sap:VirtualizedContainerService.HintSize="944,1351.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_21">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -372,7 +384,12 @@
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="83e1d81320e24b5092273fb9d774571a" Selector="&lt;webctrl css-selector='body&amp;gt;p&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;p&amp;gt;table' tag='TABLE' /&gt;&lt;webctrl tag='TD' /&gt;" TimeoutMS="10000" WaitForReady="INTERACTIVE" />
                         </ui:UiElementExists.Target>
                       </ui:UiElementExists>
-                      <If Condition="[SiteIndisponivel=True]" sap:VirtualizedContainerService.HintSize="990.666666666667,692" sap2010:WorkflowViewState.IdRef="If_4">
+                      <If sap2010:Annotation.AnnotationText="Pre-condition= SiteIndisponivel=true&#xD;&#xA;Pos-condition=Click refresh 3 vezes, se SiteIndisponivel=true, manda mensagem para o email com mensagem de erro&#xD;&#xA;" Condition="[SiteIndisponivel=True]" sap:VirtualizedContainerService.HintSize="990.666666666667,770.666666666667" sap2010:WorkflowViewState.IdRef="If_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                         <If.Then>
                           <Sequence sap:VirtualizedContainerService.HintSize="418,541.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_23">
                             <sap:WorkflowViewStateService.ViewState>
@@ -386,7 +403,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'ToolbarWindow32'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_21" KeyModifiers="None" MouseButton="BTN_LEFT">
+                              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Refresh'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_21" KeyModifiers="None" MouseButton="BTN_LEFT">
                                 <ui:Click.CursorPosition>
                                   <ui:CursorPosition Position="Center">
                                     <ui:CursorPosition.OffsetX>
