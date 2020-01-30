@@ -41,11 +41,9 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
-
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.ServiceModel</AssemblyReference>
-
+      <AssemblyReference>System.ServiceModel</AssemblyRefer
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Flowchart" sap:VirtualizedContainerService.HintSize="1048.66666666667,1096" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -131,6 +129,7 @@
                 <av:PointCollection x:Key="ConnectorLocation">390,776.02 390,824</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Email workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflow/Email.xaml">
 
               <ui:InvokeWorkflowFile.Arguments>
@@ -212,7 +211,9 @@
             <av:PointCollection x:Key="ConnectorLocation">170,356 170,694.02 390,694.02 390,724.02</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
+
         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Receita workflow" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Receita_federal/Receita.xaml">
+
           <ui:InvokeWorkflowFile.Arguments>
             <OutArgument x:TypeArguments="x:String" x:Key="Nome">[Nome_arquivo]</OutArgument>
             <OutArgument x:TypeArguments="x:String" x:Key="File">[File]</OutArgument>
