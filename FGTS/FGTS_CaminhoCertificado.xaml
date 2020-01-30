@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>496,2068</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>496,2108</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FGTS_CaminhoCertificado_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -37,7 +37,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="16">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -54,9 +54,12 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Obter o certificado de regularidade do FGTS e capturar a data de vencimento como um argumento de saida.&#xD;&#xA;&#xD;&#xA;Pré-Condition: Estar &quot;logado&quot;.&#xD;&#xA;Pós-Condition: Argumento de saida com data de validade." DisplayName="FGTS_CaminhoCertificado" sap:VirtualizedContainerService.HintSize="476,2008" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Obter o certificado de regularidade do FGTS e capturar a data de vencimento como um argumento de saida.&#xA;&#xA;Pré-Condition: Estar &quot;logado&quot;.&#xA;Pós-Condition: Argumento de saida com data de validade." DisplayName="FGTS_CaminhoCertificado" sap:VirtualizedContainerService.HintSize="476,2008" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -108,7 +111,7 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap2010:Annotation.AnnotationText="Captura a data de vencimento através de uma manipulação de string.&#xD;&#xA;&#xD;&#xA;Pós-Condition: Argumento de saida com a data de vencimento do certificado." DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,831" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence sap2010:Annotation.AnnotationText="Captura a data de vencimento através de uma manipulação de string.&#xA;&#xA;Pós-Condition: Argumento de saida com a data de vencimento do certificado." DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,831" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="s:String[]" Name="linha" />
             </Sequence.Variables>
@@ -154,7 +157,7 @@
                 <OutArgument x:TypeArguments="x:String">[out_DataValidade]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[out_DataValidade.Replace(vbCr, "").Replace(vbLf, "").Replace("Certificado Número","")]</InArgument>
+                <InArgument x:TypeArguments="x:String">[out_DataValidade.Replace(vbCr, "").Replace(vbLf, "").Replace("Certificado Número","").Replace("/",".")]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign DisplayName="Assign-Remove os espaços atrás da data" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
@@ -162,7 +165,7 @@
                 <OutArgument x:TypeArguments="x:String">[out_DataValidade]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[out_DataValidade.Remove(out_DataValidade.Length-2)]</InArgument>
+                <InArgument x:TypeArguments="x:String">[out_DataValidade.Remove(out_DataValidade.Length-1)]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Botão vizualizar'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
