@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>770,2436</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>770,2600</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DownloadPDF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -56,7 +56,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DownloadPDF" sap:VirtualizedContainerService.HintSize="750,2376" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DownloadPDF" sap:VirtualizedContainerService.HintSize="750,2500" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="data" />
       <Variable x:TypeArguments="x:Boolean" Name="imagem_existe" />
@@ -141,9 +141,9 @@
         </ui:Target>
       </ui:UiElementExists.Target>
     </ui:UiElementExists>
-    <If Condition="[elemento_existe]" DisplayName="Caso" sap:VirtualizedContainerService.HintSize="708,1583" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[elemento_existe]" DisplayName="Caso" sap:VirtualizedContainerService.HintSize="708,1707" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
-        <Sequence DisplayName="Sequencia" sap:VirtualizedContainerService.HintSize="563,1435" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Sequencia" sap:VirtualizedContainerService.HintSize="563,1559" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="download_exists" />
           </Sequence.Variables>
@@ -187,9 +187,9 @@
               </ui:Target>
             </ui:UiElementExists.Target>
           </ui:UiElementExists>
-          <If Condition="[download_exists]" DisplayName="Caso" sap:VirtualizedContainerService.HintSize="521,990" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[download_exists]" DisplayName="Caso" sap:VirtualizedContainerService.HintSize="521,1114" sap2010:WorkflowViewState.IdRef="If_1">
             <If.Then>
-              <Sequence DisplayName="Sequencia" sap:VirtualizedContainerService.HintSize="376,842" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence DisplayName="Sequencia" sap:VirtualizedContainerService.HintSize="376,966" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="download_path" />
                 </Sequence.Variables>
@@ -242,6 +242,7 @@
                     </ui:Target>
                   </ui:Click.Target>
                 </ui:Click>
+                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[path.Combine(Environment.CurrentDirectory,&quot;Certidao_Trabalhista\Data\Temp&quot;)]" />
                 <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[download_path]</OutArgument>
