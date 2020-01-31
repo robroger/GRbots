@@ -1,0 +1,663 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DownloadPDFs" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_Validade" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CaminhoDownload" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1565,3912</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>DownloadPDFs_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="DownloadPDFs" sap:VirtualizedContainerService.HintSize="1545,3852" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="validade" />
+      <Variable x:TypeArguments="x:Boolean" Name="imagem_existe" />
+      <Variable x:TypeArguments="x:Boolean" Name="existe" />
+      <Variable x:TypeArguments="x:String" Name="cnpj" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoca GetData" sap:VirtualizedContainerService.HintSize="1503,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Certidao_de Falencia_e_Concordata\Source\GetData.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_CNPJ">[cnpj]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Clique 'INPUT'" sap:VirtualizedContainerService.HintSize="1503,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="4f6a63943d66fc764077b680eddc8717" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl aaname='EMITIR CERTIDÃO' tag='A' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:Click.Target>
+    </ui:Click>
+    <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Achar elemento 'INPUT  input-51'" sap:VirtualizedContainerService.HintSize="1503,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
+      <ui:WaitUiElementAppear.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="8c02c9eef8423f73c715ee2353cb188b" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl id='input-51' tag='INPUT' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:WaitUiElementAppear.Target>
+    </ui:WaitUiElementAppear>
+    <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Digite em 'INPUT  input-51'" sap:VirtualizedContainerService.HintSize="1503,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[cnpj]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="8c02c9eef8423f73c715ee2353cb188b" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl id='input-51' tag='INPUT' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:TypeInto.Target>
+    </ui:TypeInto>
+    <ui:Click DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="5000" DisplayName="Clique 'DIV'" sap:VirtualizedContainerService.HintSize="1503,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e499d760ab4d0a49eb0f7120d0de753f" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='3' isleaf='1' parentid='app' tag='DIV' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:Click.Target>
+    </ui:Click>
+    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Clique 'DIV'" sap:VirtualizedContainerService.HintSize="1503,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="4a7004394044d45366fd825ad2f747c7" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl idx='1' parentid='recaptcha-anchor' tag='DIV' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:Click.Target>
+    </ui:Click>
+    <ui:UiElementExists DisplayName="Elemento Existe 'SPAN'" Exists="[existe]" sap:VirtualizedContainerService.HintSize="1503,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+      <ui:UiElementExists.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="de42e7b393c7ddbb677f916e16962f98" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl aaname='Próximo' tag='BUTTON' class='mb-3 mt-3 v-btn v-btn--contained theme--light v-size--default primary' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button' innertext=' Próximo ' isleaf='0' parentclass='v-stepper__wrapper' parentid='app' type='button' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:UiElementExists.Target>
+    </ui:UiElementExists>
+    <If Condition="[existe]" DisplayName="Caso" sap:VirtualizedContainerService.HintSize="1503,2729" sap2010:WorkflowViewState.IdRef="If_5">
+      <If.Then>
+        <If Condition="[existe]" DisplayName="Caso" sap:VirtualizedContainerService.HintSize="708,2244" sap2010:WorkflowViewState.IdRef="If_2">
+          <If.Then>
+            <Sequence DisplayName="Sequencia" sap:VirtualizedContainerService.HintSize="563,2096" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:Boolean" Name="download_existe" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Clique" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="c06984d761a31e81057592e4a219a371" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl aaname='Próximo' tag='BUTTON' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Clique 'A '" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="010346d52430bb1ace2c7851220c1fc3" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl aaname='Solicitar nova' tag='BUTTON' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+              <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Ache Elemento 'P'" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2">
+                <ui:WaitUiElementAppear.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="08be882825acedeb1fe1692f6d76e3eb" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl tag='P' aaname='Ela é válida até *, e você pode fazer o download clicando no link abaixo. ' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:WaitUiElementAppear.Target>
+              </ui:WaitUiElementAppear>
+              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'P'" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                <ui:GetValue.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="3b1c600fa616647cbf0b889f203d4018" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl idx='2' tag='P' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetValue.Target>
+                <ui:GetValue.Value>
+                  <OutArgument x:TypeArguments="x:String">[validade]</OutArgument>
+                </ui:GetValue.Value>
+              </ui:GetValue>
+              <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="521,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_Validade]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[validade.Substring((validade.IndexOf("até ")+4),10)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="521,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[validade]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[validade.Substring((validade.IndexOf("até ")+4),10)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Clique 'A '" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="74103d66888d217dc6e133fc66633e12" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl aaname='Download' tag='A' innertext=' Download ' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+              <ui:UiElementExists DisplayName="Elemento Existe 'DIV'" Exists="[download_existe]" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                <ui:UiElementExists.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ff6311e941369b7816df82732cd6ad45" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='Certidão Nada Consta - Internet Explorer' /&gt;&lt;wnd aaname='Notificação' cls='DirectUIHWND' /&gt;&lt;ctrl automationid='IENotificationBar' /&gt;&lt;ctrl name='Abrir' role='push button' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:UiElementExists.Target>
+              </ui:UiElementExists>
+              <If Condition="[download_existe]" DisplayName="Caso" sap:VirtualizedContainerService.HintSize="521,928" sap2010:WorkflowViewState.IdRef="If_1">
+                <If.Then>
+                  <Sequence DisplayName="Sequencie" sap:VirtualizedContainerService.HintSize="376,780" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="download_path" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Clique 'drop down button  6'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2bf33c60bd25798d71325f96f66e0aad" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='Certidão Nada Consta - Internet Explorer' /&gt;&lt;wnd aaname='Notificação' cls='DirectUIHWND' /&gt;&lt;ctrl automationid='IENotificationBar' /&gt;&lt;ctrl name='Salvar' role='split button' /&gt;&lt;ctrl name='6' role='drop down button' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:Click.Target>
+                    </ui:Click>
+                    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Clique 'menu item  Salvar como'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="5bea2ecb40b5a1a38366906d377853d3" Selector="&lt;wnd app='iexplore.exe' cls='#32768' /&gt;&lt;ctrl name='Contexto' role='popup menu' /&gt;&lt;ctrl automationid='53409' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:Click.Target>
+                    </ui:Click>
+                    <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[download_path]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[path.Combine(Environment.CurrentDirectory,"Certidao_de Falencia_e_Concordata\Data\Temp\Certidão de Falência e Concordata")]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[validade]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[validade.Replace("/",".")]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_CaminhoDownload]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[download_path+" "+validade+".pdf"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Digite em" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[download_path+&quot; &quot;+validade+&quot;.pdf[k(enter)]&quot;]">
+                      <ui:TypeInto.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='Salvar como' /&gt;&lt;wnd aaname='Painel do Explorer' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Nome:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:TypeInto.Target>
+                    </ui:TypeInto>
+                  </Sequence>
+                </If.Then>
+              </If>
+            </Sequence>
+          </If.Then>
+        </If>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Sequencia" sap:VirtualizedContainerService.HintSize="750,2581" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Caixa de mensagem" sap:VirtualizedContainerService.HintSize="708,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Lide com o captcha&quot;]" />
+          <ui:UiElementExists DisplayName="Elemento Existe 'SPAN'" Exists="[existe]" sap:VirtualizedContainerService.HintSize="708,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+            <ui:UiElementExists.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="de42e7b393c7ddbb677f916e16962f98" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl aaname='Próximo' tag='BUTTON' class='mb-3 mt-3 v-btn v-btn--contained theme--light v-size--default primary' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button' innertext=' Próximo ' isleaf='0' parentclass='v-stepper__wrapper' parentid='app' type='button' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:UiElementExists.Target>
+          </ui:UiElementExists>
+          <If Condition="[existe]" DisplayName="Caso" sap:VirtualizedContainerService.HintSize="708,2244" sap2010:WorkflowViewState.IdRef="If_4">
+            <If.Then>
+              <Sequence DisplayName="Sequencia" sap:VirtualizedContainerService.HintSize="563,2096" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:Boolean" Name="download_exists" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Clique 'INPUT  gerarCertidaoFor...'" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="c06984d761a31e81057592e4a219a371" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl aaname='Próximo' tag='BUTTON' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Clique 'A '" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="010346d52430bb1ace2c7851220c1fc3" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl aaname='Solicitar nova' tag='BUTTON' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Ache Elemento 'P'" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_3">
+                  <ui:WaitUiElementAppear.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="08be882825acedeb1fe1692f6d76e3eb" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl tag='P' aaname='Ela é válida até *, e você pode fazer o download clicando no link abaixo. ' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:WaitUiElementAppear.Target>
+                </ui:WaitUiElementAppear>
+                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'P'" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
+                  <ui:GetValue.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="3b1c600fa616647cbf0b889f203d4018" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl idx='2' tag='P' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:GetValue.Target>
+                  <ui:GetValue.Value>
+                    <OutArgument x:TypeArguments="x:String">[validade]</OutArgument>
+                  </ui:GetValue.Value>
+                </ui:GetValue>
+                <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="521,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_Validade]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[validade.Substring((validade.IndexOf("até ")+4),10)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="521,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[validade]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[validade.Substring((validade.IndexOf("até ")+4),10)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Clique 'A '" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="74103d66888d217dc6e133fc66633e12" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl aaname='Download' tag='A' innertext=' Download ' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:UiElementExists DisplayName="Elemento Existe 'DIV'" Exists="[download_exists]" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+                  <ui:UiElementExists.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ff6311e941369b7816df82732cd6ad45" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='Certidão Nada Consta - Internet Explorer' /&gt;&lt;wnd aaname='Notificação' cls='DirectUIHWND' /&gt;&lt;ctrl automationid='IENotificationBar' /&gt;&lt;ctrl name='Abrir' role='push button' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:UiElementExists.Target>
+                </ui:UiElementExists>
+                <If Condition="[download_exists]" DisplayName="Caso" sap:VirtualizedContainerService.HintSize="521,928" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If.Then>
+                    <Sequence DisplayName="Sequencia" sap:VirtualizedContainerService.HintSize="376,780" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="download_path" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Clique 'drop down button  6'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2bf33c60bd25798d71325f96f66e0aad" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='Certidão Nada Consta - Internet Explorer' /&gt;&lt;wnd aaname='Notificação' cls='DirectUIHWND' /&gt;&lt;ctrl automationid='IENotificationBar' /&gt;&lt;ctrl name='Salvar' role='split button' /&gt;&lt;ctrl name='6' role='drop down button' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:Click.Target>
+                      </ui:Click>
+                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Clique em" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="5bea2ecb40b5a1a38366906d377853d3" Selector="&lt;wnd app='iexplore.exe' cls='#32768' /&gt;&lt;ctrl name='Contexto' role='popup menu' /&gt;&lt;ctrl automationid='53409' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:Click.Target>
+                      </ui:Click>
+                      <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[download_path]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[path.Combine(Environment.CurrentDirectory,"Certidao_de Falencia_e_Concordata\Data\Temp\Certidão de Falência e Concordata")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[validade]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[validade.Replace("/",".")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[out_CaminhoDownload]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[download_path+" "+validade+".pdf"]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Digite em" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[download_path+&quot; &quot;+validade+&quot;.pdf[k(enter)]&quot;]">
+                        <ui:TypeInto.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='Salvar como' /&gt;&lt;wnd aaname='Painel do Explorer' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Nome:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:TypeInto.Target>
+                      </ui:TypeInto>
+                    </Sequence>
+                  </If.Then>
+                </If>
+              </Sequence>
+            </If.Then>
+          </If>
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>
