@@ -42,6 +42,7 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
@@ -63,7 +64,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID2</x:Reference>
+      <x:Reference>__ReferenceID3</x:Reference>
     </Flowchart.StartNode>
     <FlowSwitch x:TypeArguments="x:Int32" x:Name="__ReferenceID0" DisplayName="Flow Switch" Expression="[Certidao_atualizada]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_1">
       <FlowSwitch.Default>
@@ -86,7 +87,7 @@
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
           <FlowStep.Next>
-            <x:Reference>__ReferenceID2</x:Reference>
+            <x:Reference>__ReferenceID3</x:Reference>
           </FlowStep.Next>
         </FlowStep>
       </FlowSwitch.Default>
@@ -96,10 +97,10 @@
           <av:Point x:Key="ShapeLocation">455,286.666666666667</av:Point>
           <av:Size x:Key="ShapeSize">70,87</av:Size>
           <av:PointCollection x:Key="2Connector">455,330 270,330</av:PointCollection>
-          <av:PointCollection x:Key="5Connector">525,330 780,330</av:PointCollection>
+          <av:PointCollection x:Key="5Connector">525,308.416666666667 555,308.416666666667 555,289.52 760,289.52</av:PointCollection>
           <av:PointCollection x:Key="6Connector">455,351.666666666667 330,351.666666666667 330,424</av:PointCollection>
           <av:PointCollection x:Key="Default">525,351.666666666667 710,351.666666666667 710,434</av:PointCollection>
-          <av:PointCollection x:Key="3Connector">490,373.666666666667 490,403.666666666667 480,403.666666666667 480,504.02</av:PointCollection>
+          <av:PointCollection x:Key="3Connector">490,373.666666666667 490,504.02</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <FlowStep x:Key="6" x:Name="__ReferenceID4">
@@ -142,7 +143,7 @@
               </sap:WorkflowViewStateService.ViewState>
             </ui:InvokeWorkflowFile>
             <FlowStep.Next>
-              <FlowStep x:Name="__ReferenceID6">
+              <FlowStep x:Name="__ReferenceID2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <av:Point x:Key="ShapeLocation">290,824</av:Point>
@@ -161,7 +162,7 @@
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:InvokeWorkflowFile>
                 <FlowStep.Next>
-                  <FlowDecision x:Name="__ReferenceID7" Condition="[Certidao_atualizada=1]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+                  <FlowDecision x:Name="__ReferenceID6" Condition="[Certidao_atualizada=1]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -171,7 +172,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <FlowDecision.True>
-                      <FlowStep x:Name="__ReferenceID2">
+                      <FlowStep x:Name="__ReferenceID3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <av:Point x:Key="ShapeLocation">330,124</av:Point>
@@ -201,7 +202,7 @@
           </FlowStep>
         </FlowStep.Next>
       </FlowStep>
-      <FlowStep x:Key="2" x:Name="__ReferenceID8">
+      <FlowStep x:Key="2" x:Name="__ReferenceID7">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">70,304</av:Point>
@@ -225,15 +226,15 @@
           <x:Reference>__ReferenceID1</x:Reference>
         </FlowStep.Next>
       </FlowStep>
-      <FlowStep x:Key="5" x:Name="__ReferenceID3">
+      <FlowStep x:Key="5" x:Name="__ReferenceID8">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">780,304</av:Point>
+            <av:Point x:Key="ShapeLocation">760,264.02</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">880,356 880,694.02 390,694.02 390,724.02</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">860,315.02 860,849.5 490,849.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Atualizaçao_Estadual_Distrital workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Certidao_estadual_distrital/Atualizaçao_Estadual_Distrital.xaml">
+        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Atualizaçao_Estadual_Distrital workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Estadual_distrital\Atualizaçao_Estadual_Distrital.xaml">
           <ui:InvokeWorkflowFile.Arguments>
             <scg:Dictionary x:TypeArguments="x:String, Argument" />
           </ui:InvokeWorkflowFile.Arguments>
@@ -244,18 +245,18 @@
           </sap:WorkflowViewStateService.ViewState>
         </ui:InvokeWorkflowFile>
         <FlowStep.Next>
-          <x:Reference>__ReferenceID1</x:Reference>
+          <x:Reference>__ReferenceID2</x:Reference>
         </FlowStep.Next>
       </FlowStep>
       <FlowStep x:Key="3" x:Name="__ReferenceID9">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">380,504.02</av:Point>
+            <av:Point x:Key="ShapeLocation">390,504.02</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">480,555.02 480,585.02 390,585.02 390,724.02</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">490,555.02 490,585.02 390,585.02 390,724.02</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke FGTS_Main workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="FGTS\FGTS_Main.xaml">
+        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke FGTS_Main workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="FGTS\FGTS_Main.xaml">
           <ui:InvokeWorkflowFile.Arguments>
             <OutArgument x:TypeArguments="x:String" x:Key="out_Path">[Path]</OutArgument>
             <OutArgument x:TypeArguments="x:String" x:Key="out_NomeArquivo">[Nome_arquivo]</OutArgument>
@@ -272,14 +273,14 @@
         </FlowStep.Next>
       </FlowStep>
     </FlowSwitch>
-    <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
     <x:Reference>__ReferenceID4</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID6</x:Reference>
     <x:Reference>__ReferenceID7</x:Reference>
-    <x:Reference>__ReferenceID8</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID8</x:Reference>
     <x:Reference>__ReferenceID9</x:Reference>
   </Flowchart>
 </Activity>
