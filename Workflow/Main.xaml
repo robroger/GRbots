@@ -100,6 +100,7 @@
           <av:PointCollection x:Key="5Connector">525,308.416666666667 555,308.416666666667 555,289.52 760,289.52</av:PointCollection>
           <av:PointCollection x:Key="6Connector">455,351.666666666667 330,351.666666666667 330,424</av:PointCollection>
           <av:PointCollection x:Key="Default">525,351.666666666667 710,351.666666666667 710,434</av:PointCollection>
+          <av:PointCollection x:Key="3Connector">490,373.666666666667 490,403.666666666667 510,403.666666666667 510,534.02</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <FlowStep x:Key="6" x:Name="__ReferenceID4">
@@ -247,6 +248,30 @@
           <x:Reference>__ReferenceID2</x:Reference>
         </FlowStep.Next>
       </FlowStep>
+      <FlowStep x:Key="3" x:Name="__ReferenceID9">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">410,534.02</av:Point>
+            <av:Size x:Key="ShapeSize">200,51</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">510,585.02 510,615.02 390,615.02 390,724.02</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke FGTS_Main workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="FGTS\FGTS_Main.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_Path">[Path]</OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_NomeArquivo">[Nome_arquivo]</OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_File">[File]</OutArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:InvokeWorkflowFile>
+        <FlowStep.Next>
+          <x:Reference>__ReferenceID1</x:Reference>
+        </FlowStep.Next>
+      </FlowStep>
     </FlowSwitch>
     <x:Reference>__ReferenceID3</x:Reference>
     <x:Reference>__ReferenceID4</x:Reference>
@@ -256,5 +281,6 @@
     <x:Reference>__ReferenceID7</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID8</x:Reference>
+    <x:Reference>__ReferenceID9</x:Reference>
   </Flowchart>
 </Activity>
