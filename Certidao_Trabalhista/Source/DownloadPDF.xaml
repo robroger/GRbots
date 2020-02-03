@@ -242,13 +242,13 @@
                     </ui:Target>
                   </ui:Click.Target>
                 </ui:Click>
-                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[path.Combine(Environment.CurrentDirectory,&quot;Certidao_Trabalhista\Data\Temp&quot;)]" />
+                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="C:\CERTIDAO_GR" />
                 <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[download_path]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[path.Combine(Environment.CurrentDirectory,"Certidao_Trabalhista\Data\Temp\Certidão Negativa de Débitos Trabalhistas")]</InArgument>
+                    <InArgument x:TypeArguments="x:String">["C:\CERTIDAO_GR\Certidão Negativa de Débitos Trabalhistas"]</InArgument>
                   </Assign.Value>
                 </Assign>
                 <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">

@@ -364,13 +364,13 @@
                         </ui:Target>
                       </ui:Click.Target>
                     </ui:Click>
-                    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[path.Combine(Environment.CurrentDirectory,&quot;Certidao_de Falencia_e_Concordata\Data\Temp&quot;)]" />
+                    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="C:\CERTIDAO_GR" />
                     <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_3">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[download_path]</OutArgument>
                       </Assign.To>
                       <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">[path.Combine(Environment.CurrentDirectory,"Certidao_de Falencia_e_Concordata\Data\Temp\Certidão de Falência e Concordata")]</InArgument>
+                        <InArgument x:TypeArguments="x:String">["C:\CERTIDAO_GR\Certidão de Falência e Concordata"]</InArgument>
                       </Assign.Value>
                     </Assign>
                     <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
@@ -615,13 +615,13 @@
                           </ui:Target>
                         </ui:Click.Target>
                       </ui:Click>
-                      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[path.Combine(Environment.CurrentDirectory,&quot;Certidao_de Falencia_e_Concordata\Data\Temp&quot;)]" />
+                      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="C:\CERTIDAO_GR" />
                       <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_8">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[download_path]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[path.Combine(Environment.CurrentDirectory,"Certidao_de Falencia_e_Concordata\Data\Temp\Certidão de Falência e Concordata")]</InArgument>
+                          <InArgument x:TypeArguments="x:String">["C:\CERTIDAO_GR\Certidão de Falência e Concordata"]</InArgument>
                         </Assign.Value>
                       </Assign>
                       <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_9">
