@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="in_Data" Type="InArgument(ui:GenericValue)" />
     <x:Property Name="out_DataValidade" Type="OutArgument(x:String)" />
+    <x:Property Name="in_NomeCheck" Type="InArgument(x:String)" />
   </x:Members>
   <this:FGTS_CaminhoCertificado.in_Data>
     <InArgument x:TypeArguments="ui:GenericValue" />
@@ -9,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>496,2108</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>496,2887</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FGTS_CaminhoCertificado_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -37,7 +38,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="19">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -59,26 +60,53 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Obter o certificado de regularidade do FGTS e capturar a data de vencimento como um argumento de saida.&#xA;&#xA;Pré-Condition: Estar &quot;logado&quot;.&#xA;Pós-Condition: Argumento de saida com data de validade." DisplayName="FGTS_CaminhoCertificado" sap:VirtualizedContainerService.HintSize="476,2008" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Obter o certificado de regularidade do FGTS e capturar a data de vencimento como um argumento de saida.&#xA;&#xA;Pré-Condition: Estar &quot;logado&quot;.&#xA;Pós-Condition: Argumento de saida com data de validade." DisplayName="FGTS_CaminhoCertificado" sap:VirtualizedContainerService.HintSize="476,2827" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:Browser" Name="browserReg" />
+      <Variable x:TypeArguments="ui:Browser" Name="browserData" />
+      <Variable x:TypeArguments="ui:Browser" Name="browserCon" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe Situação'" sap:VirtualizedContainerService.HintSize="434,386" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="b78c40730f7e925837e0769d159fd18f" Selector="&lt;html title='Situação de Regularidade do Empregador' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe Situação'" sap:VirtualizedContainerService.HintSize="434,659" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="b78c40730f7e925837e0769d159fd18f" Selector="&lt;html title='Situação de Regularidade do Empregador' /&gt;" UiBrowser="[browserReg]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap2010:Annotation.AnnotationText="Clica no link para obter o certificado de regularidade do FGTS, dando acesso a pagina onde se encontra a validade." DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,240" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence sap2010:Annotation.AnnotationText="Clica no link para obter o certificado de regularidade do FGTS, dando acesso a pagina onde se encontra a validade." DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,513" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="elementReg" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <ui:UiElementExists DisplayName="Element Exists 'DIV'" Exists="[elementReg]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="40bcfb8c81569ae849cf20ca201204bc" Selector="&lt;webctrl idx='1' tag='DIV' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Check.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[in_NomeCheck]</InArgument>
+                <InArgument x:TypeArguments="x:Boolean" x:Key="in_TesteConexao">[elementReg]</InArgument>
+                <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[browserReg]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
             <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Certificado de Regularidade'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
@@ -105,15 +133,16 @@
         </ActivityAction>
       </ui:BrowserScope.Body>
     </ui:BrowserScope>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe Certificado'" sap:VirtualizedContainerService.HintSize="434,977" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="5296faba7fc03a3529fe83046b95145c" Selector="&lt;html title='Certificado de Regularidade do FGTS - CRF' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe Certificado'" sap:VirtualizedContainerService.HintSize="434,1250" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="5296faba7fc03a3529fe83046b95145c" Selector="&lt;html title='Certificado de Regularidade do FGTS - CRF' /&gt;" UiBrowser="[browserData]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap2010:Annotation.AnnotationText="Captura a data de vencimento através de uma manipulação de string.&#xA;&#xA;Pós-Condition: Argumento de saida com a data de vencimento do certificado." DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,831" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence sap2010:Annotation.AnnotationText="Captura a data de vencimento através de uma manipulação de string.&#xA;&#xA;Pós-Condition: Argumento de saida com a data de vencimento do certificado." DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1104" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="s:String[]" Name="linha" />
+              <Variable x:TypeArguments="x:Boolean" Name="elementData" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -121,6 +150,25 @@
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <ui:UiElementExists DisplayName="Element Exists 'DIV'" Exists="[elementData]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0e3895d8c72572d21f5d8ac50748096e" Selector="&lt;webctrl idx='1' tag='DIV' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Check.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[in_NomeCheck]</InArgument>
+                <InArgument x:TypeArguments="x:Boolean" x:Key="in_TesteConexao">[elementData]</InArgument>
+                <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[browserData]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
             <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Data de vencimento'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
               <ui:GetValue.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="8c8678bd1897e900b222b3061730c4a2" Selector="&lt;webctrl idx='3' tag='P' /&gt;">
@@ -194,19 +242,41 @@
         </ActivityAction>
       </ui:BrowserScope.Body>
     </ui:BrowserScope>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe Consulta'" sap:VirtualizedContainerService.HintSize="434,386" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="44a3880b725b3b487fad3cae92130649" Selector="&lt;html title='Consulta Regularidade do Empregador' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe Consulta'" sap:VirtualizedContainerService.HintSize="434,659" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="44a3880b725b3b487fad3cae92130649" Selector="&lt;html title='Consulta Regularidade do Empregador' /&gt;" UiBrowser="[browserCon]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap2010:Annotation.AnnotationText="Clica no botão imprimir direceionando para a &quot;pagina de download&quot; do arquivo." DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,240" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence sap2010:Annotation.AnnotationText="Clica no botão imprimir direceionando para a &quot;pagina de download&quot; do arquivo." DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,513" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="elementCon" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <ui:UiElementExists DisplayName="Element Exists 'INPUT  mainForm:btImpri...'" Exists="[elementCon]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="6e4299853317ed378261ad978243911a" Selector="&lt;webctrl id='mainForm:btImprimir4' tag='INPUT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Check.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[in_NomeCheck]</InArgument>
+                <InArgument x:TypeArguments="x:Boolean" x:Key="in_TesteConexao">[elementCon]</InArgument>
+                <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[browserCon]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
             <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Botão imprimir'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
