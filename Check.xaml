@@ -1,4 +1,19 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Checa" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="584,1228.66666666667" sap2010:WorkflowViewState.IdRef="Checa_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Checa" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="TesteConexao" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_Nome" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Checa.TesteConexao>
+    <InArgument x:TypeArguments="x:Boolean" />
+  </this:Checa.TesteConexao>
+  <this:Checa.in_Nome>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Checa.in_Nome>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>584,1268.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Checa_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
       <x:String>System.Activities</x:String>
@@ -49,7 +64,6 @@
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Checa" sap:VirtualizedContainerService.HintSize="564,1168.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:Boolean" Name="TesteConexao" />
       <Variable x:TypeArguments="ui:GenericValue" Name="contador" />
       <Variable x:TypeArguments="x:String" Name="variable1" />
     </Sequence.Variables>
@@ -106,7 +120,6 @@
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="user" />
             <Variable x:TypeArguments="ss:SecureString" Name="password" />
-            <Variable x:TypeArguments="x:String" Name="in_Nome" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
