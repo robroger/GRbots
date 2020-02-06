@@ -108,6 +108,7 @@
                     <ui:InvokeWorkflowFile.Arguments>
                       <OutArgument x:TypeArguments="x:String" x:Key="out_Validade">[validade]</OutArgument>
                       <OutArgument x:TypeArguments="x:String" x:Key="out_CaminhoDownload">[caminho_download]</OutArgument>
+                      <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[browser]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                   <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="379,60" sap2010:WorkflowViewState.IdRef="Assign_3">
