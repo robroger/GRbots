@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="out_DataValidade" Type="OutArgument(x:String)" />
     <x:Property Name="in_NomeCheck" Type="InArgument(x:String)" />
+    <x:Property Name="in_Browser" Type="InArgument(ui:Browser)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -73,6 +74,7 @@
         <InArgument x:TypeArguments="ui:GenericValue" x:Key="in_Data" />
         <OutArgument x:TypeArguments="x:String" x:Key="out_DataValidade">[out_DataValidade]</OutArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_NomeCheck">[in_NomeCheck]</InArgument>
+        <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[in_Browser]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder &quot;CERTIDAO_GR&quot;" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="C:\CERTIDAO_GR" />
