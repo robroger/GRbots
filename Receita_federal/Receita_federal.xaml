@@ -17,7 +17,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1246.66666666667,6592.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1246.66666666667,6446.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -75,22 +75,23 @@
   <sap:WorkflowViewStateService.ViewState>
     <scg:Dictionary x:TypeArguments="x:String, x:Object">
       <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Insere o CNPJ e o captcha na pagina inicial.&#xA;Pré-condition: Asset com CNPJ e interação com o usuario.&#xA;Pos-condition:Arquivo da Certidão da receita Federal" DisplayName="Web" sap:VirtualizedContainerService.HintSize="1226.66666666667,6532.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap2010:Annotation.AnnotationText="Insere o CNPJ e o captcha na pagina inicial.&#xA;Pré-condition: Asset com CNPJ e interação com o usuario.&#xA;Pos-condition:Arquivo da Certidão da receita Federal" DisplayName="Web" sap:VirtualizedContainerService.HintSize="1226.66666666667,6386.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser BrowserType="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1184.66666666667,6380.66666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[URL]" Url="http://servicos.receita.fazenda.gov.br/Servicos/certidao/CNDConjuntaInter/InformaNICertidao.asp?tipo=1">
+    <ui:OpenBrowser BrowserType="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1184.66666666667,6234.66666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[URL]" Url="http://servicos.receita.fazenda.gov.br/Servicos/certidao/CNDConjuntaInter/InformaNICertidao.asp?tipo=1">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1150.66666666667,6282" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1150.66666666667,6136" sap2010:WorkflowViewState.IdRef="Sequence_15">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="SemRedeInicio" />
               <Variable x:TypeArguments="x:String" Name="Testeconexao" />
@@ -100,15 +101,6 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:UiElementExists DisplayName="Element Exists 'Pagina fora do ar'" Exists="[SemRedeInicio]" sap:VirtualizedContainerService.HintSize="1108.66666666667,106" sap2010:WorkflowViewState.IdRef="UiElementExists_8">
-              <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="9d85cb4b75e8f3b65a57afa058385bcf" Selector="&lt;webctrl css-selector='body&amp;gt;p&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;p&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;font' idx='2' tag='FONT' /&gt;" TimeoutMS="30">
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </ui:UiElementExists.Target>
-            </ui:UiElementExists>
             <Assign sap:VirtualizedContainerService.HintSize="1108.66666666667,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[Nome]</OutArgument>
@@ -119,9 +111,11 @@
             </Assign>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Check workflow" sap:VirtualizedContainerService.HintSize="1108.66666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Check.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:Boolean" x:Key="TesteConexao">[SemRedeInicio]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[Nome]</InArgument>
-                <InArgument x:TypeArguments="ui:Browser" x:Key="Browser">[URL]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_TesteConexao" xml:space="preserve">&lt;html title='Emissão de Certidão Negativa' /&gt;
+&lt;webctrl parentid='CertidaoNegativa' tag='B' /&gt;
+</InArgument>
+                <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[URL]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'Emiss ode Page'" sap:VirtualizedContainerService.HintSize="1108.66666666667,5816" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="dfc03be37c7e0446d6b4e79b456fa246" Selector="&lt;html title='Emissão de Certidão Negativa' /&gt;" UiBrowser="[URL]">
@@ -386,14 +380,14 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:UiElementExists DisplayName="Element Exists 'TD'" Exists="[SiteIndisponivel]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_9">
                                 <ui:UiElementExists.Target>
-                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="fd8f5bee1da071a95472ac3801a1de33" Selector="&lt;webctrl css-selector='body&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;b&amp;gt;p&amp;gt;table' tag='TABLE' /&gt;&lt;webctrl tag='TD' /&gt;" TimeoutMS="10000" WaitForReady="INTERACTIVE" />
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e00f9786dc3256ce06b7d179750c41c3" Selector="&lt;webctrl aaname='Emissão de 2ª via da certidão' tag='A' /&gt;" TimeoutMS="10000" WaitForReady="INTERACTIVE" />
                                 </ui:UiElementExists.Target>
                               </ui:UiElementExists>
                               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Check workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Check.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:Boolean" x:Key="TesteConexao">[SiteIndisponivel]</InArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[Nome]</InArgument>
-                                  <InArgument x:TypeArguments="ui:Browser" x:Key="Browser">[URL]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_TesteConexao">&lt;webctrl aaname='Emissão de 2ª via da certidão' tag='A' /&gt;</InArgument>
+                                  <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[URL]</InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                               <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Emissao de 2 via da certidao '" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
@@ -445,9 +439,9 @@
                               </ui:UiElementExists>
                               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Check workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Check.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:Boolean" x:Key="TesteConexao">[ErroDeConexao]</InArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[Nome]</InArgument>
-                                  <InArgument x:TypeArguments="ui:Browser" x:Key="Browser">[URL]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_TesteConexao">&lt;html title='Emissão de 2ª via de Certidão' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;font' tableCol='2' tag='FONT' /&gt;</InArgument>
+                                  <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[URL]</InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                             </Sequence>

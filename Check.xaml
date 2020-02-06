@@ -71,7 +71,7 @@
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Checa" sap:VirtualizedContainerService.HintSize="563,1247" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:Int32" Name="contador" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="contador" />
       <Variable x:TypeArguments="x:Boolean" Name="exist" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -79,7 +79,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:UiElementExists DisplayName="Element Exists 'push button'" Exists="[exist]" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+    <ui:UiElementExists DisplayName="Element Exists 'push button'" Exists="[exist]" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
       <ui:UiElementExists.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="936c674351590a07613e693c0be65365" Selector="[in_TesteConexao]">
           <ui:Target.TimeoutMS>
@@ -97,7 +97,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:UiElementExists>
-    <While sap:VirtualizedContainerService.HintSize="521,480" sap2010:WorkflowViewState.IdRef="While_1" Condition="[(exist=False) Or contador=3]">
+    <While sap:VirtualizedContainerService.HintSize="521,480" sap2010:WorkflowViewState.IdRef="While_1" Condition="[exist=False and contador&lt;4]">
       <Sequence sap:VirtualizedContainerService.HintSize="376,322" sap2010:WorkflowViewState.IdRef="Sequence_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
