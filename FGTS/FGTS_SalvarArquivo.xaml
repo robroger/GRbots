@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>538,1384</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>538,1424</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FGTS_SalvarArquivo_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -83,6 +83,7 @@
           <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[in_NomeCheck]</InArgument>
           <InArgument x:TypeArguments="x:String" x:Key="in_TesteConexao">&lt;html title='Consulta Regularidade do Empregador' /&gt;&lt;webctrl id='mainForm:btImprimir4' tag='INPUT' /&gt;</InArgument>
           <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[in_Browser]</InArgument>
+          <InArgument x:TypeArguments="x:Boolean" x:Key="exist" />
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe Consulta'" sap:VirtualizedContainerService.HintSize="434,926" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="33d5921dc83b7f6d3b4f0c50cc153558" Selector="&lt;html title='Consulta Regularidade do Empregador' /&gt;">
