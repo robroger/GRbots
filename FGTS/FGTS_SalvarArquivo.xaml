@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>538,1362</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>538,1384</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FGTS_SalvarArquivo_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -59,7 +59,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Seleciona a pasta e o nome que sera dado ao arquivo para salva-lo.&#xA;&#xA;Pré-Condition: Data de validade e pasta &quot;CERTIDAO_GR&quot;.&#xA;&#xA;Pós-Condition: Nome e caminho do arquivo como argumentos de saida." DisplayName="FGTS_SalvarArquivo" sap:VirtualizedContainerService.HintSize="518,1262" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Seleciona a pasta e o nome que sera dado ao arquivo para salva-lo.&#xA;&#xA;Pré-Condition: Data de validade e pasta &quot;CERTIDAO_GR&quot;.&#xA;&#xA;Pós-Condition: Nome e caminho do arquivo como argumentos de saida." DisplayName="FGTS_SalvarArquivo" sap:VirtualizedContainerService.HintSize="518,1324" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Browser" Name="browserSalvar" />
     </Sequence.Variables>
@@ -69,7 +69,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,1083" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,1145" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="elementSalvar" />
       </Sequence.Variables>
@@ -85,13 +85,13 @@
           <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[in_Browser]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe Consulta'" sap:VirtualizedContainerService.HintSize="434,864" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="33d5921dc83b7f6d3b4f0c50cc153558" Selector="&lt;html title='Consulta Regularidade do Empregador' /&gt;">
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe Consulta'" sap:VirtualizedContainerService.HintSize="434,926" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="33d5921dc83b7f6d3b4f0c50cc153558" Selector="&lt;html title='Consulta Regularidade do Empregador' /&gt;">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,718" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,780" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -169,6 +169,7 @@
                   <InArgument x:TypeArguments="x:String">["C:\CERTIDAO_GR\"+io_NomeArquivo+".pdf"]</InArgument>
                 </Assign.Value>
               </Assign>
+              <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
             </Sequence>
           </ActivityAction>
         </ui:BrowserScope.Body>
