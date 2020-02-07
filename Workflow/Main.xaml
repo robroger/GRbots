@@ -26,7 +26,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="18">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="19">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -45,6 +45,7 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Flowchart" sap:VirtualizedContainerService.HintSize="1048.66666666667,1096" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -55,6 +56,8 @@
       <Variable x:TypeArguments="x:String" Name="Nome_arquivo" />
       <Variable x:TypeArguments="s:String[]" Default="[{&quot;SICAF&quot;,&quot;Certidão da Receita Federal&quot;,&quot;Certidão do FGTS&quot;,&quot;Certidão Trabalhista&quot;,&quot;Certidão Estadual/Distrital&quot;,&quot;Certidão de Falência e Concordata&quot;}]" Name="Opcao_Certidao" />
       <Variable x:TypeArguments="x:String" Name="Outra_certidao" />
+      <Variable x:TypeArguments="ui:Image" Name="File_image" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="Body" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -96,7 +99,7 @@
               <av:PointCollection x:Key="ConnectorLocation">420,256 420,334</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[Certidao_atualizada]" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[Certidao_atualizada]" sap:VirtualizedContainerService.HintSize="496.666666666667,394.666666666667" sap2010:WorkflowViewState.IdRef="Switch`1_1">
             <Switch.Default>
               <Sequence sap:VirtualizedContainerService.HintSize="376,150.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <sap:WorkflowViewStateService.ViewState>
@@ -111,9 +114,10 @@
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" x:Key="Certidão da Receita Federal" DisplayName="Invoke Receita workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Receita_federal\Receita.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <OutArgument x:TypeArguments="x:String" x:Key="Nome">[Nome_arquivo]</OutArgument>
-                <OutArgument x:TypeArguments="x:String" x:Key="File">[File]</OutArgument>
-                <OutArgument x:TypeArguments="x:String" x:Key="Path">[Path]</OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="Path">[Certidao_atualizada]</OutArgument>
                 <InArgument x:TypeArguments="x:Boolean" x:Key="Exist" />
+                <InArgument x:TypeArguments="ui:GenericValue" x:Key="Body">[Body]</InArgument>
+                <InArgument x:TypeArguments="ui:Image" x:Key="File">[File_image]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" x:Key="Certidão do FGTS" DisplayName="Invoke FGTS_Main workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="FGTS\FGTS_Main.xaml">
@@ -167,7 +171,8 @@
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[Nome_arquivo]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_Path">[Path]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_File">[File]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_File">[File_image.ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Body">[Body]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
