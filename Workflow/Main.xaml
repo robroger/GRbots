@@ -114,10 +114,10 @@
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" x:Key="Certidão da Receita Federal" DisplayName="Invoke Receita workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Receita_federal\Receita.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <OutArgument x:TypeArguments="x:String" x:Key="Nome">[Nome_arquivo]</OutArgument>
-                <OutArgument x:TypeArguments="x:String" x:Key="Path">[Certidao_atualizada]</OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="Path">[Path]</OutArgument>
                 <InArgument x:TypeArguments="x:Boolean" x:Key="Exist" />
-                <InArgument x:TypeArguments="ui:GenericValue" x:Key="Body">[Body]</InArgument>
-                <InArgument x:TypeArguments="ui:Image" x:Key="File">[File_image]</InArgument>
+                <OutArgument x:TypeArguments="ui:GenericValue" x:Key="Body">[Body]</OutArgument>
+                <OutArgument x:TypeArguments="ui:Image" x:Key="File">[File_image]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" x:Key="Certidão do FGTS" DisplayName="Invoke FGTS_Main workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="FGTS\FGTS_Main.xaml">
@@ -135,20 +135,20 @@
                 <OutArgument x:TypeArguments="x:String" x:Key="out_Arquivo">[File]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <Sequence x:Key="Certidão Estadual/Distrital" sap:VirtualizedContainerService.HintSize="402,240.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+            <Sequence x:Key="Certidão Estadual/Distrital" sap:VirtualizedContainerService.HintSize="402,243.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Atualizaçao_Estadual_Distrital workflow" sap:VirtualizedContainerService.HintSize="360,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Estadual_distrital\Atualizaçao_Estadual_Distrital.xaml">
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Atualizaçao_Estadual_Distrital workflow" sap:VirtualizedContainerService.HintSize="356,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Estadual_distrital\Atualizaçao_Estadual_Distrital.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="Nome">[Nome_arquivo]</InArgument>
                   <InArgument x:TypeArguments="ui:GenericValue" x:Key="File">[File]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="Path">[Path]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
-              <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="360,22" sap2010:WorkflowViewState.IdRef="ShouldStop_1" />
+              <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="356,22" sap2010:WorkflowViewState.IdRef="ShouldStop_1" />
             </Sequence>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" x:Key="Certidão de Falência e Concordata" DisplayName="Invoke Main_Certidao_de_Falencia_e_Concordata workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Certidao_de Falencia_e_Concordata\Main_Certidao_de_Falencia_e_Concordata.xaml">
               <ui:InvokeWorkflowFile.Arguments>
@@ -167,7 +167,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">420,386 420,404</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Email workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflow/Email.xaml">
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Email workflow" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflow/Email.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[Nome_arquivo]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_Path">[Path]</InArgument>

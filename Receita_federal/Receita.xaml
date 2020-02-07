@@ -1,24 +1,18 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="ProcessTransaction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="Nome" Type="InArgument(x:String)" />
-    <x:Property Name="Path" Type="InArgument(x:String)" />
+    <x:Property Name="Nome" Type="OutArgument(x:String)" />
+    <x:Property Name="Path" Type="OutArgument(x:String)" />
     <x:Property Name="Exist" Type="InArgument(x:Boolean)" />
-    <x:Property Name="Body" Type="InArgument(ui:GenericValue)" />
-    <x:Property Name="File" Type="InArgument(ui:Image)" />
+    <x:Property Name="Body" Type="OutArgument(ui:GenericValue)" />
+    <x:Property Name="File" Type="OutArgument(ui:Image)" />
   </x:Members>
   <this:ProcessTransaction.Exist>
     <InArgument x:TypeArguments="x:Boolean" />
   </this:ProcessTransaction.Exist>
-  <this:ProcessTransaction.Body>
-    <InArgument x:TypeArguments="ui:GenericValue" />
-  </this:ProcessTransaction.Body>
-  <this:ProcessTransaction.File>
-    <InArgument x:TypeArguments="ui:Image" />
-  </this:ProcessTransaction.File>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>396,638.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>396,536.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -66,9 +60,10 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="376,578.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="376,476.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Browser" Name="URL" />
     </Sequence.Variables>
@@ -81,10 +76,10 @@
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Sequence workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Receita_federal/Receita_federal.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="ui:Image" x:Key="File">[File]</OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="CaminhoDiretorio">[Path]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="Nome">Receita Federal</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="CaminhoDiretorio">[Path]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="Nome">[Nome]</OutArgument>
         <InArgument x:TypeArguments="ui:Browser" x:Key="URL">[URL]</InArgument>
-        <InArgument x:TypeArguments="ui:GenericValue" x:Key="Certidao">[Body]</InArgument>
+        <OutArgument x:TypeArguments="ui:GenericValue" x:Key="Certidao">[Body]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
@@ -100,13 +95,5 @@
         </ui:Target>
       </ui:SendHotkey.Target>
     </ui:SendHotkey>
-    <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_1">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[Path]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">C:\Robot-Certidoes\Receita</InArgument>
-      </Assign.Value>
-    </Assign>
   </Sequence>
 </Activity>
