@@ -4,7 +4,7 @@
     <x:Property Name="Path" Type="OutArgument(x:String)" />
     <x:Property Name="Exist" Type="InArgument(x:Boolean)" />
     <x:Property Name="Body" Type="OutArgument(ui:GenericValue)" />
-    <x:Property Name="File" Type="OutArgument(ui:Image)" />
+    <x:Property Name="File" Type="OutArgument(x:String)" />
   </x:Members>
   <this:ProcessTransaction.Exist>
     <InArgument x:TypeArguments="x:Boolean" />
@@ -75,11 +75,12 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Sequence workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Receita_federal/Receita_federal.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="ui:Image" x:Key="File">[File]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="File">[File]</OutArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="CaminhoDiretorio">[Path]</OutArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="Nome">[Nome]</OutArgument>
         <InArgument x:TypeArguments="ui:Browser" x:Key="URL">[URL]</InArgument>
         <OutArgument x:TypeArguments="ui:GenericValue" x:Key="Certidao">[Body]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="Path">[Path]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
