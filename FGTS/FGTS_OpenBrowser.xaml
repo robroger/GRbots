@@ -86,7 +86,6 @@
                 <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[in_NomeCheck]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_TesteConexao">&lt;html title='Consulta Regularidade do Empregador'/&gt;&lt;webctrl tag='H3'/&gt;</InArgument>
                 <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[browser]</InArgument>
-                <InArgument x:TypeArguments="x:Boolean" x:Key="exist" />
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="FGTS/FGTS_Process.xaml">
