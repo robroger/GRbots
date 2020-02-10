@@ -16,7 +16,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>666,10463.3333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>666,10468.6666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Atualizaçao_Estadual_Distrital_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -73,7 +73,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Atualizaçao_Estadual_Distrital" sap:VirtualizedContainerService.HintSize="646,10363.3333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Atualizaçao_Estadual_Distrital" sap:VirtualizedContainerService.HintSize="646,10368.6666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="CNPJ" />
       <Variable x:TypeArguments="x:String" Default="Certidão da Dívida Ativa" Name="Certidao_divida_ativa" />
@@ -86,13 +86,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="604,10271.3333333333" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://ww1.receita.fazenda.df.gov.br/cidadao/certidoes/Certidao">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="604,10276.6666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://ww1.receita.fazenda.df.gov.br/cidadao/certidoes/Certidao">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="570,10172.6666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="570,10178" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:Browser" Name="Atualizar_pagina" />
               <Variable x:TypeArguments="ui:Browser" Name="Browser" />
@@ -737,13 +737,13 @@
                 </ui:WindowScope.Body>
               </ui:WindowScope>
             </Sequence>
-            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Portal'" sap:VirtualizedContainerService.HintSize="528,2632" sap2010:WorkflowViewState.IdRef="BrowserScope_8" InformativeScreenshot="d6ca1867c45478fc22dd6ad5ecc0f418" Selector="&lt;html app='chrome.exe' title='Portal de Serviços da Receita - Secretaria de Economia do Distri*' /&gt;" UiBrowser="[Atualizar_pagina]">
+            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Portal'" sap:VirtualizedContainerService.HintSize="528,2637.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_8" InformativeScreenshot="d6ca1867c45478fc22dd6ad5ecc0f418" Selector="&lt;html app='chrome.exe' title='Portal de Serviços da Receita - Secretaria de Economia do Distri*' /&gt;" UiBrowser="[Atualizar_pagina]">
               <ui:BrowserScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="494,2486" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="494,2491.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_13">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Boolean" Name="Expansor_painel" />
                       <Variable x:TypeArguments="x:String" Name="Teste" />
@@ -774,7 +774,7 @@
                         <InArgument x:TypeArguments="x:String">["&lt;html app='chrome.exe' title='Portal de Serviços da Receita - Secretaria de Economia do Distri*' /&gt; &lt;webctrl id='mat-expansion-panel-header-5' tag='MAT-EXPANSION-PANEL-HEADER' /&gt;"]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Check workflow" sap:VirtualizedContainerService.HintSize="452,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Check.xaml">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Check workflow" sap:VirtualizedContainerService.HintSize="452,89.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Check.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[Nome]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="in_TesteConexao">[Teste]</InArgument>
@@ -850,19 +850,19 @@
                       </ui:Click.Target>
                     </ui:Click>
                     <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="452,22" sap2010:WorkflowViewState.IdRef="Delay_10" />
-                    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Portal'" sap:VirtualizedContainerService.HintSize="452,1317.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_10" InformativeScreenshot="212c26485df5f26713bf6f8ac1286c85" Selector="&lt;html app='chrome.exe' title='Portal de Serviços da Receita - Secretaria de Economia do Distri*' url='https://ww1.receita.fazenda.df.gov.br/cidadao/certidoes/validacao/emitir/*' /&gt;" UiBrowser="[Browser_certidao]">
+                    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Portal'" sap:VirtualizedContainerService.HintSize="452,1320" sap2010:WorkflowViewState.IdRef="BrowserScope_10" InformativeScreenshot="d6fd4b8cad06b8dd91fa924c214d4881" Selector="&lt;html app='chrome.exe' title='Portal de Serviços da Receita - Secretaria de Economia do Distri*' /&gt;" UiBrowser="[Browser_certidao]">
                       <ui:BrowserScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="418,1171.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="418,1174" sap2010:WorkflowViewState.IdRef="Sequence_19">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Check workflow" sap:VirtualizedContainerService.HintSize="376,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Check.xaml">
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Check workflow" sap:VirtualizedContainerService.HintSize="376,89.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Check.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
                                 <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[Nome]</InArgument>
                                 <InArgument x:TypeArguments="x:String" x:Key="in_TesteConexao">&lt;html app='chrome.exe' title='Portal de Serviços da Receita - Secretaria de Economia do Distri*' url='https://ww1.receita.fazenda.df.gov.br/cidadao/certidoes/validacao/emitir/*' /&gt;</InArgument>
