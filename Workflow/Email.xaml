@@ -1,8 +1,12 @@
+
 <Activity mc:Ignorable="sap sap2010" x:Class="Email" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
   <x:Members>
     <x:Property Name="in_Nome" Type="InArgument(x:String)" />
     <x:Property Name="in_Path" Type="InArgument(x:String)" />
     <x:Property Name="in_File" Type="InArgument(x:String)" />
+
     <x:Property Name="Body" Type="InArgument(x:String)" />
   </x:Members>
   <this:Email.Body>
@@ -12,6 +16,7 @@
     <x:Null />
   </mva:VisualBasic.Settings>
   <sap:VirtualizedContainerService.HintSize>396,470.666666666667</sap:VirtualizedContainerService.HintSize>
+
   <sap2010:WorkflowViewState.IdRef>Email_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -40,7 +45,9 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
+
     <scg:List x:TypeArguments="AssemblyReference" Capacity="19">
+
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -62,7 +69,9 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
+
   <Sequence sap2010:Annotation.AnnotationText="Var nome=Nome da sua certidão&#xA;Var Path=Caminho da pasta onde está sua certidão" DisplayName="Email" sap:VirtualizedContainerService.HintSize="376,410.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="user" />
       <Variable x:TypeArguments="ss:SecureString" Name="password" />
@@ -74,7 +83,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Delay Duration="00:00:08" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+
     <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Certidao&quot; +Body]" DisplayName="Send SMTP Mail Message" Email="robots@globalred.com.br" EnableSSL="True" From="Robots@globalred.com.br" sap:VirtualizedContainerService.HintSize="334,149.333333333333" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Name="Certidao" Password="intergr@@!" Port="587" SecureConnection="Auto" Server="smtp.globalred.com.br" Subject="[&quot;Certidao&quot; +in_Nome]" To="victor.franca@globalred.com.br">
+
       <ui:SendMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
           <InArgument x:TypeArguments="x:String">[in_File]</InArgument>
