@@ -3,7 +3,6 @@
     <x:Property Name="in_Nome" Type="InArgument(x:String)" />
     <x:Property Name="in_TesteConexao" Type="InArgument(x:String)" />
     <x:Property Name="in_Browser" Type="InArgument(ui:Browser)" />
-    <x:Property Name="exist" Type="InArgument(x:Boolean)" />
   </x:Members>
   <this:Checa.in_Nome>
     <InArgument x:TypeArguments="x:String" />
@@ -14,13 +13,10 @@
   <this:Checa.in_Browser>
     <InArgument x:TypeArguments="ui:Browser" />
   </this:Checa.in_Browser>
-  <this:Checa.exist>
-    <InArgument x:TypeArguments="x:Boolean" />
-  </this:Checa.exist>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>583,1285</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>583,1245</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Checa_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="46">
@@ -77,6 +73,7 @@
   <Sequence DisplayName="Check" sap:VirtualizedContainerService.HintSize="563,1185" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Default="0" Name="contador" />
+      <Variable x:TypeArguments="x:Boolean" Name="exist" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
