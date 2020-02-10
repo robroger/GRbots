@@ -16,7 +16,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>583,1245</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>583.333333333333,1290.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Checa_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="46">
@@ -70,7 +70,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Check" sap:VirtualizedContainerService.HintSize="563,1185" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Check" sap:VirtualizedContainerService.HintSize="563.333333333333,1190.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Default="0" Name="contador" />
       <Variable x:TypeArguments="x:Boolean" Name="exist" />
@@ -80,7 +80,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:UiElementExists DisplayName="Element Exists 'push button'" Exists="[exist]" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+    <ui:UiElementExists DisplayName="Element Exists 'push button'" Exists="[exist]" sap:VirtualizedContainerService.HintSize="521.333333333333,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
       <ui:UiElementExists.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="936c674351590a07613e693c0be65365" Selector="[in_TesteConexao]">
           <ui:Target.TimeoutMS>
@@ -98,7 +98,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:UiElementExists>
-    <While sap:VirtualizedContainerService.HintSize="521,480" sap2010:WorkflowViewState.IdRef="While_1" Condition="[exist=False and contador&lt;4]">
+    <While sap:VirtualizedContainerService.HintSize="521.333333333333,486" sap2010:WorkflowViewState.IdRef="While_1" Condition="[exist=False and contador&lt;4]">
       <Sequence sap:VirtualizedContainerService.HintSize="376,322" sap2010:WorkflowViewState.IdRef="Sequence_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
