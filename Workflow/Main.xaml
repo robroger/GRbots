@@ -1,4 +1,5 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1069,1196" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1068.66666666667,1196" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
       <x:String>System.Activities</x:String>
@@ -26,7 +27,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="18">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="19">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -45,6 +46,7 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Flowchart" sap:VirtualizedContainerService.HintSize="1049,1096" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -55,6 +57,7 @@
       <Variable x:TypeArguments="x:String" Name="Nome_arquivo" />
       <Variable x:TypeArguments="s:String[]" Default="[{&quot;SICAF&quot;,&quot;Certidão da Receita Federal&quot;,&quot;Certidão do FGTS&quot;,&quot;Certidão Trabalhista&quot;,&quot;Certidão Estadual/Distrital&quot;,&quot;Certidão de Falência e Concordata&quot;}]" Name="Opcao_Certidao" />
       <Variable x:TypeArguments="x:String" Name="Outra_certidao" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="Body" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -96,7 +99,9 @@
               <av:PointCollection x:Key="ConnectorLocation">420,256 420,334</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[Certidao_atualizada]" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+
+          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[Certidao_atualizada]" sap:VirtualizedContainerService.HintSize="496.666666666667,486.666666666667" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+
             <Switch.Default>
               <Sequence sap:VirtualizedContainerService.HintSize="376,150.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <sap:WorkflowViewStateService.ViewState>
@@ -111,9 +116,10 @@
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" x:Key="Certidão da Receita Federal" DisplayName="Invoke Receita workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Receita_federal\Receita.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <OutArgument x:TypeArguments="x:String" x:Key="Nome">[Nome_arquivo]</OutArgument>
-                <OutArgument x:TypeArguments="x:String" x:Key="File">[File]</OutArgument>
                 <OutArgument x:TypeArguments="x:String" x:Key="Path">[Path]</OutArgument>
                 <InArgument x:TypeArguments="x:Boolean" x:Key="Exist" />
+                <OutArgument x:TypeArguments="ui:GenericValue" x:Key="Body">[Body]</OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="File">[File]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" x:Key="Certidão do FGTS" DisplayName="Invoke FGTS_Main workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="FGTS\FGTS_Main.xaml">
@@ -131,20 +137,19 @@
                 <OutArgument x:TypeArguments="x:String" x:Key="out_Arquivo">[File]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <Sequence x:Key="Certidão Estadual/Distrital" sap:VirtualizedContainerService.HintSize="402,240.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+            <Sequence x:Key="Certidão Estadual/Distrital" sap:VirtualizedContainerService.HintSize="398,178.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Atualizaçao_Estadual_Distrital workflow" sap:VirtualizedContainerService.HintSize="360,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Estadual_distrital\Atualizaçao_Estadual_Distrital.xaml">
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Atualizaçao_Estadual_Distrital workflow" sap:VirtualizedContainerService.HintSize="356,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Estadual_distrital\Atualizaçao_Estadual_Distrital.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="Nome">[Nome_arquivo]</InArgument>
-                  <InArgument x:TypeArguments="ui:GenericValue" x:Key="File">[File]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="Path">[Path]</InArgument>
+                  <OutArgument x:TypeArguments="x:String" x:Key="Nome">[Nome_arquivo]</OutArgument>
+                  <OutArgument x:TypeArguments="x:String" x:Key="File">[File]</OutArgument>
+                  <OutArgument x:TypeArguments="x:String" x:Key="Path">[Path]</OutArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
-              <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="360,22" sap2010:WorkflowViewState.IdRef="ShouldStop_1" />
             </Sequence>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" x:Key="Certidão de Falência e Concordata" DisplayName="Invoke Main_Certidao_de_Falencia_e_Concordata workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Certidao_de Falencia_e_Concordata\Main_Certidao_de_Falencia_e_Concordata.xaml">
               <ui:InvokeWorkflowFile.Arguments>
@@ -163,11 +168,14 @@
                   <av:PointCollection x:Key="ConnectorLocation">420,386 420,404</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Email workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflow/Email.xaml">
+
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Email workflow" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflow/Email.xaml">
+
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[Nome_arquivo]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_Path">[Path]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_File">[File]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Body">[Body]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
