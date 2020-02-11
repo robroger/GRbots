@@ -1,7 +1,7 @@
 {
   "name": "Atualizacao",
   "description": "Blank Process",
-  "main": "Workflow\\MainTest.xaml",
+  "main": "Workflow\\Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.7.2]",
     "UiPath.Mail.Activities": "[1.7.2]",
