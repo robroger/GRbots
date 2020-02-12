@@ -700,55 +700,55 @@
                           </ActivityAction>
                         </ui:BrowserScope.Body>
                       </ui:BrowserScope>
-                      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'chrome.exe Emissão'" sap:VirtualizedContainerService.HintSize="1066.66666666667,324.666666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_4" InformativeScreenshot="297907a8876f034a32f61fe9bf70aafe" Selector="&lt;html title='Emissão de 2ª via de Certidão' /&gt;" UiBrowser="[URL]">
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Check workflow" sap:VirtualizedContainerService.HintSize="1066.66666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Check.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[Nome]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_TesteConexao">&lt;html title='Emissão de 2ª via de Certidão' /&gt;&lt;webctrl id='PRINCIPAL' tag='DIV' /&gt;</InArgument>
+                          <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[URL]</InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'chrome.exe Emissão'" sap:VirtualizedContainerService.HintSize="1066.66666666667,406" sap2010:WorkflowViewState.IdRef="BrowserScope_4" InformativeScreenshot="297907a8876f034a32f61fe9bf70aafe" Selector="&lt;html title='Emissão de 2ª via de Certidão' /&gt;" UiBrowser="[URL]">
                         <ui:BrowserScope.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,178.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,260" sap2010:WorkflowViewState.IdRef="Sequence_28">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Check workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Check.xaml">
-                                <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_Nome">[Nome]</InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_TesteConexao">&lt;html title='Emissão de 2ª via de Certidão' /&gt;&lt;webctrl id='PRINCIPAL' tag='DIV' /&gt;</InArgument>
-                                  <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[URL]</InArgument>
-                                </ui:InvokeWorkflowFile.Arguments>
-                              </ui:InvokeWorkflowFile>
+                              <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'Validade'" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_1">
+                                <ui:GetOCRText.OCREngine>
+                                  <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                                    <ActivityFunc.Argument>
+                                      <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                                    </ActivityFunc.Argument>
+                                    <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" />
+                                  </ActivityFunc>
+                                </ui:GetOCRText.OCREngine>
+                                <ui:GetOCRText.Target>
+                                  <ui:Target Element="{x:Null}" InformativeScreenshot="8933ae765fc1d7d733b97dc4109931bd" Selector="&lt;webctrl idx='7' tag='P' /&gt;">
+                                    <ui:Target.ClippingRegion>
+                                      <ui:Region Rectangle="65, 33, 67, 15" />
+                                    </ui:Target.ClippingRegion>
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetOCRText.Target>
+                                <ui:GetOCRText.Text>
+                                  <OutArgument x:TypeArguments="x:String">[Validade]</OutArgument>
+                                </ui:GetOCRText.Text>
+                              </ui:GetOCRText>
                             </Sequence>
                           </ActivityAction>
                         </ui:BrowserScope.Body>
                       </ui:BrowserScope>
-                      <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'Validade'" sap:VirtualizedContainerService.HintSize="1066.66666666667,168" sap2010:WorkflowViewState.IdRef="GetOCRText_1">
-                        <ui:GetOCRText.OCREngine>
-                          <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
-                            <ActivityFunc.Argument>
-                              <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
-                            </ActivityFunc.Argument>
-                            <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" />
-                          </ActivityFunc>
-                        </ui:GetOCRText.OCREngine>
-                        <ui:GetOCRText.Target>
-                          <ui:Target Element="{x:Null}" InformativeScreenshot="8933ae765fc1d7d733b97dc4109931bd" Selector="&lt;webctrl idx='7' tag='P' /&gt;">
-                            <ui:Target.ClippingRegion>
-                              <ui:Region Rectangle="65, 33, 67, 15" />
-                            </ui:Target.ClippingRegion>
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                            <ui:Target.WaitForReady>
-                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                            </ui:Target.WaitForReady>
-                          </ui:Target>
-                        </ui:GetOCRText.Target>
-                        <ui:GetOCRText.Text>
-                          <OutArgument x:TypeArguments="x:String">[Validade]</OutArgument>
-                        </ui:GetOCRText.Text>
-                      </ui:GetOCRText>
                       <Assign sap:VirtualizedContainerService.HintSize="1066.66666666667,62" sap2010:WorkflowViewState.IdRef="Assign_3">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[Validade]</OutArgument>
