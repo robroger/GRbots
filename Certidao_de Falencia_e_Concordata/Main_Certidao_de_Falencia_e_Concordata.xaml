@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>441,601</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>549,1072</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -56,23 +56,24 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequencia" sap:VirtualizedContainerService.HintSize="421,541" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Sequencia" sap:VirtualizedContainerService.HintSize="529,972" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="caminho_download" />
       <Variable x:TypeArguments="x:String" Name="validade" />
+      <Variable x:TypeArguments="x:Boolean" Name="file_exists" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invocar Open_Website" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Certidao_de Falencia_e_Concordata/Source/Abrir_Website.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invocar Open_Website" sap:VirtualizedContainerService.HintSize="487,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Certidao_de Falencia_e_Concordata/Source/Abrir_Website.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="x:String" x:Key="out_Validade">[validade]</OutArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_CaminhoDownload">[caminho_download]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Assign sap:VirtualizedContainerService.HintSize="379,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="487,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_Caminho]</OutArgument>
       </Assign.To>
@@ -80,7 +81,7 @@
         <InArgument x:TypeArguments="x:String">[caminho_download]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="379,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap:VirtualizedContainerService.HintSize="487,60" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_Nome]</OutArgument>
       </Assign.To>
@@ -88,7 +89,7 @@
         <InArgument x:TypeArguments="x:String">["Certidão de Falência e Concordata "+validade]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="379,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign sap:VirtualizedContainerService.HintSize="487,60" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_Arquivo]</OutArgument>
       </Assign.To>
@@ -96,6 +97,22 @@
         <InArgument x:TypeArguments="x:String">[caminho_download]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Finalizar processo" sap:VirtualizedContainerService.HintSize="379,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Iexplore" />
+    <ui:PathExists DisplayName="Path Exists" Exists="[file_exists]" sap:VirtualizedContainerService.HintSize="487,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[out_Arquivo]" PathType="File" />
+    <If Condition="[file_exists]" sap:VirtualizedContainerService.HintSize="487,324" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="KillProcess_3" ProcessName="Iexplore" />
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="242,176" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Delay DisplayName="Delay" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+          <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="KillProcess_4" ProcessName="Iexplore" />
+        </Sequence>
+      </If.Else>
+    </If>
   </Sequence>
 </Activity>
