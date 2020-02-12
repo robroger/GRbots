@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>804,1077</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>804,1204</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Open_Website_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -54,26 +54,28 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Abrir_Website" sap:VirtualizedContainerService.HintSize="784,1017" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Abrir_Website" sap:VirtualizedContainerService.HintSize="784,1144" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="existe" />
       <Variable x:TypeArguments="x:String" Name="caminho_download" />
       <Variable x:TypeArguments="x:String" Name="validade" />
+      <Variable x:TypeArguments="ui:Browser" Name="browser" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Abrir_Navegador" sap:VirtualizedContainerService.HintSize="742,925" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://cnc.tjdft.jus.br/">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="IE" DisplayName="Abrir_Navegador" sap:VirtualizedContainerService.HintSize="742,1052" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[browser]" Url="https://cnc.tjdft.jus.br/">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="708,826" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="708,953" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -85,6 +87,15 @@
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="3f7d9dcae97d4483e4e5fc15833e148f" Selector="&lt;html title='Certidão Nada Consta' /&gt;&lt;webctrl aaname='TJDFT' href='https://cnc.tjdft.jus.br/logo-landing.svg' tag='IMG' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Check workflow" sap:VirtualizedContainerService.HintSize="666,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Check.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Nome">Certidão de Falência e Concordata</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_TesteConexao" xml:space="preserve">&lt;html title='Certidão Nada Consta' /&gt;
+&lt;webctrl aaname='VALIDAR CERTIDÃO ' tag='SPAN' /&gt;
+</InArgument>
+                <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[browser]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
             <If Condition="[existe]" DisplayName="Caso" sap:VirtualizedContainerService.HintSize="666,526" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <Sequence DisplayName="Sequencia" sap:VirtualizedContainerService.HintSize="421,379" sap2010:WorkflowViewState.IdRef="Sequence_9">
@@ -97,6 +108,7 @@
                     <ui:InvokeWorkflowFile.Arguments>
                       <OutArgument x:TypeArguments="x:String" x:Key="out_Validade">[validade]</OutArgument>
                       <OutArgument x:TypeArguments="x:String" x:Key="out_CaminhoDownload">[caminho_download]</OutArgument>
+                      <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[browser]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                   <Assign DisplayName="Atribuir" sap:VirtualizedContainerService.HintSize="379,60" sap2010:WorkflowViewState.IdRef="Assign_3">

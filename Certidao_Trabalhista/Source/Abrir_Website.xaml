@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>764,1134</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>764,1261</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Open_Website_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -54,13 +54,15 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Pré-Condições: Não há.&#xA;&#xA;Pós-Condições: O navegador Internet Explorer deve ser aberto no site em que a certidão será baixada." DisplayName="Abrir_Website" sap:VirtualizedContainerService.HintSize="744,1074" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Pré-Condições: Não há.&#xA;&#xA;Pós-Condições: O navegador Internet Explorer deve ser aberto no site em que a certidão será baixada." DisplayName="Abrir_Website" sap:VirtualizedContainerService.HintSize="744,1201" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="imagem_exite" />
       <Variable x:TypeArguments="x:String" Name="caminho_download" />
       <Variable x:TypeArguments="x:String" Name="data" />
+      <Variable x:TypeArguments="ui:Browser" Name="browser" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -69,13 +71,13 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Abrir Navegador" sap:VirtualizedContainerService.HintSize="702,925" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="http://www.tst.jus.br/certidao">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="IE" DisplayName="Abrir Navegador" sap:VirtualizedContainerService.HintSize="702,1052" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[browser]" Url="http://www.tst.jus.br/certidao">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="668,826" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="668,953" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -97,6 +99,15 @@
                 </ui:Target>
               </ui:ImageFound.Target>
             </ui:ImageFound>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Check workflow" sap:VirtualizedContainerService.HintSize="626,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Check.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Nome">Certidão de Débitos Trabalhistas</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_TesteConexao" xml:space="preserve">&lt;html title='Certidão Negativa de Débitos Trabalhistas - TST' /&gt;
+&lt;webctrl parentid='corpo' tag='DIV' aaname='Em cumprimento à Lei nº 12.440/2011 e à Resolução Administrativa TST nº 1470/2011, a Justiça do Trabalho emite, a partir de 4 de janeiro de 2012, a Certidão Negativa de Débitos Trabalhistas - CNDT, documento indispensável à participação em licitações públicas.    Erros de lançamento, inclusão e exclusão de devedores deverão ser resolvidos junto às Corregedorias Regionais dos TRT&amp;apos;s, conforme OFÍCIO CIRCULAR TST.GP No. 154. ' /&gt;
+</InArgument>
+                <InArgument x:TypeArguments="ui:Browser" x:Key="in_Browser">[browser]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
             <If Condition="[imagem_exite]" DisplayName="Caso" sap:VirtualizedContainerService.HintSize="626,526" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <Sequence DisplayName="Sequencia" sap:VirtualizedContainerService.HintSize="381,379" sap2010:WorkflowViewState.IdRef="Sequence_9">
