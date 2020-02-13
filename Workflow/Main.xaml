@@ -120,6 +120,7 @@
                       <OutArgument x:TypeArguments="x:String" x:Key="out_NomeArquivo">[nome_arquivo]</OutArgument>
                       <OutArgument x:TypeArguments="x:String" x:Key="out_File">[file]</OutArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_NomeCheck">FGTS</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_Address">[address]</OutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" x:Key="Certidão Trabalhista" DisplayName="Invoke Main_Certidao_de_Debitos_Trabalhistas workflow" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Certidao_Trabalhista\Main_Certidao_de_Debitos_Trabalhistas.xaml">
