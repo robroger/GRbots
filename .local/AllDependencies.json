@@ -1619,9 +1619,9 @@
     "restore": {
       "projectUniqueName": "Atualizacao",
       "projectName": "Atualizacao",
-      "projectPath": "C:\\Users\\supor\\Desktop\\Projetos\\GRbots\\.local",
+      "projectPath": "C:\\Users\\supor\\Desktop\\Projetos\\GRbots\\GRbots\\.local",
       "packagesPath": "C:\\Users\\supor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\supor\\Desktop\\Projetos\\GRbots\\.local"
+      "outputPath": "C:\\Users\\supor\\Desktop\\Projetos\\GRbots\\GRbots\\.local"
     },
     "frameworks": {
       "net461": {
