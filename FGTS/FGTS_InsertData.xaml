@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>546,1477</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>546,1437</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>InsertData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -148,7 +148,7 @@
         </ui:Click>
         <ui:UiElementExists DisplayName="Element Exists 'Erro de captcha'" Exists="[captchaCaixaErro]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
           <ui:UiElementExists.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0b404c3dc12156c7440e5153e84c8f3c" Selector="&lt;html title='Consulta Regularidade do Empregador' /&gt;&lt;webctrl aaname='Código Captcha Inválido    ' parentid='mainForm' tag='DIV' /&gt;" TimeoutMS="10000">
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0b404c3dc12156c7440e5153e84c8f3c" Selector="&lt;html title='Consulta Regularidade do Empregador' /&gt;&lt;webctrl aaname='Código Captcha Inválido    ' parentid='mainForm' tag='DIV' /&gt;" TimeoutMS="3000">
               <ui:Target.WaitForReady>
                 <InArgument x:TypeArguments="ui:WaitForReady" />
               </ui:Target.WaitForReady>
@@ -157,7 +157,7 @@
         </ui:UiElementExists>
         <ui:UiElementExists DisplayName="Element Exists 'Pag Seguinte'" Exists="[captchaPagSeguinte]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
           <ui:UiElementExists.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="fc715adbc0bd82ef535d1e3d89666a79" Selector="&lt;html title='Situação de Regularidade do Empregador' /&gt;&lt;webctrl parentid='mainForm:textoRegularidade*' tag='SPAN' /&gt;" TimeoutMS="10000">
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="fc715adbc0bd82ef535d1e3d89666a79" Selector="&lt;html title='Situação de Regularidade do Empregador' /&gt;&lt;webctrl parentid='mainForm:textoRegularidade*' tag='SPAN' /&gt;" TimeoutMS="3000">
               <ui:Target.WaitForReady>
                 <InArgument x:TypeArguments="ui:WaitForReady" />
               </ui:Target.WaitForReady>
