@@ -45,6 +45,7 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap:VirtualizedContainerService.HintSize="676,728" sap2010:WorkflowViewState.IdRef="Sequence_5">
@@ -63,11 +64,11 @@
           <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 296.7,107.5 296.7,109.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <State x:Name="__ReferenceID0" DisplayName="Process" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_3">
+      <State x:Name="__ReferenceID0" DisplayName="Process" sap:VirtualizedContainerService.HintSize="623,1521" sap2010:WorkflowViewState.IdRef="State_3">
         <State.Entry>
-          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="577,974" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="577,1107" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <TryCatch.Try>
-              <Sequence sap:VirtualizedContainerService.HintSize="539,747" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence sap:VirtualizedContainerService.HintSize="539,880" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="ui:GenericValue" Name="body" />
                   <Variable x:TypeArguments="x:String" Name="outra_certidao" />
@@ -92,7 +93,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:InputDialog>
-                <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[certidao_atualizada]" sap:VirtualizedContainerService.HintSize="497,248" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[certidao_atualizada]" sap:VirtualizedContainerService.HintSize="497,381" sap2010:WorkflowViewState.IdRef="Switch`1_1">
                   <Switch.Default>
                     <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
                       <Assign.To>
@@ -212,7 +213,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <Transition.Condition>[Exceptions Is Nothing And fechar = False]</Transition.Condition>
             <Transition.To>
-              <State x:Name="__ReferenceID1" DisplayName="Decision" sap:VirtualizedContainerService.HintSize="609,1191" sap2010:WorkflowViewState.IdRef="State_2">
+              <State x:Name="__ReferenceID1" DisplayName="Decision" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_2">
                 <State.Entry>
                   <Sequence sap:VirtualizedContainerService.HintSize="563,804" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <sap:WorkflowViewStateService.ViewState>
