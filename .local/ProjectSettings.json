@@ -1,1 +1,3 @@
-{"OpenedDocuments":"[\"Check.xaml\",\"Receita_federal/Receita_federal.xaml\"]","ProjectBreakpoints":"{\"Value\":{\"Receita_federal/Receita_federal.xaml\":[{\"ConditionalExpression\":null,\"ActionExpression\":null,\"ExpectedHitCounter\":null,\"ShouldContinueAfterAction\":false,\"IsEnabled\":true,\"ActivityId\":\"1.2\",\"ActivityName\":\"Open Browser\"}]}}","ProjectWatches":"{\"Value\":[]}"}
+
+{"OpenedDocuments":"[\"FGTS/FGTS_CaminhoCertificado.xaml\",\"Workflow/Main.xaml\",\"FGTS/FGTS_Main.xaml\",\"Check.xaml\",\"FGTS/FGTS_OpenBrowser.xaml\",\"FGTS/FGTS_Process.xaml\",\"FGTS/FGTS_InsertData.xaml\"]","ProjectBreakpoints":"{\"Value\":{}}","ProjectWatches":"{\"Value\":[]}","LibraryProjectSettings":"{\"IncludeSourcesByDefault\":true,\"DefaultActivitiesRootCategories\":[null]}"}
+
