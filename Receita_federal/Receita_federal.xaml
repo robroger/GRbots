@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1322.66666666667,10518.6666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1322.66666666667,11053.3333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -75,20 +75,20 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Insere o CNPJ e o captcha na pagina inicial.&#xA;Pré-condition: Asset com CNPJ e interação com o usuario.&#xA;Pos-condition:Arquivo da Certidão da receita Federal" DisplayName="Web" sap:VirtualizedContainerService.HintSize="1302.66666666667,10418.6666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap2010:Annotation.AnnotationText="Insere o CNPJ e o captcha na pagina inicial.&#xA;Pré-condition: Asset com CNPJ e interação com o usuario.&#xA;Pos-condition:Arquivo da Certidão da receita Federal" DisplayName="Web" sap:VirtualizedContainerService.HintSize="1302.66666666667,10953.3333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="IE" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1260.66666666667,10264.6666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[URL]" Url="http://servicos.receita.fazenda.gov.br/Servicos/certidao/CNDConjuntaInter/InformaNICertidao.asp?tipo=1">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="IE" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1260.66666666667,10799.3333333333" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[URL]" Url="http://servicos.receita.fazenda.gov.br/Servicos/certidao/CNDConjuntaInter/InformaNICertidao.asp?tipo=1">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1226.66666666667,10166" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1226.66666666667,10700.6666666667" sap2010:WorkflowViewState.IdRef="Sequence_15">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="SemRedeInicio" />
               <Variable x:TypeArguments="x:String" Name="Testeconexao" />
@@ -116,19 +116,19 @@
                 <InArgument x:TypeArguments="x:Boolean" x:Key="exist" />
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'Emiss ode Page'" sap:VirtualizedContainerService.HintSize="1184.66666666667,9845.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="dfc03be37c7e0446d6b4e79b456fa246" Selector="&lt;html title='Emissão de Certidão Negativa' /&gt;" UiBrowser="[URL]">
+            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'Emiss ode Page'" sap:VirtualizedContainerService.HintSize="1184.66666666667,10380" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="dfc03be37c7e0446d6b4e79b456fa246" Selector="&lt;html title='Emissão de Certidão Negativa' /&gt;" UiBrowser="[URL]">
               <ui:BrowserScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence sap:VirtualizedContainerService.HintSize="1150.66666666667,9699.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <Sequence sap:VirtualizedContainerService.HintSize="1150.66666666667,10234" sap2010:WorkflowViewState.IdRef="Sequence_7">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1108.66666666667,9607.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1108.66666666667,10142" sap2010:WorkflowViewState.IdRef="Sequence_3">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="ui:GenericValue" Name="Captcha" />
                         <Variable x:TypeArguments="x:Boolean" Name="ErroDeConexao" />
@@ -828,6 +828,85 @@
                           </ui:BrowserScope.Body>
                         </ui:BrowserScope>
                       </Sequence>
+                      <Sequence DisplayName="Web" sap:VirtualizedContainerService.HintSize="1066.66666666667,772.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="ui:GenericValue" Name="AddressdisplayControl" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'Emiss ode Ieframe'" sap:VirtualizedContainerService.HintSize="510,680.666666666667" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="fa4e289d3f3f2d97b0c432c56f92729e" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='Emissão de 2ª via de Certidão - Internet Explorer' /&gt;">
+                          <ui:WindowScope.Body>
+                            <ActivityAction x:TypeArguments="x:Object">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,534.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'AddressDisplay Control'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                                  <ui:GetValue.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e05c3aba7b5808836582cb95e9a2aa12" Selector="&lt;wnd cls='Address Band Root' title='Barra de Endereços' /&gt;&lt;wnd cls='AddressDisplay Control' /&gt;">
+                                      <ui:Target.TimeoutMS>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:Target.TimeoutMS>
+                                      <ui:Target.WaitForReady>
+                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                      </ui:Target.WaitForReady>
+                                    </ui:Target>
+                                  </ui:GetValue.Target>
+                                  <ui:GetValue.Value>
+                                    <OutArgument x:TypeArguments="ui:GenericValue">[AddressdisplayControl]</OutArgument>
+                                  </ui:GetValue.Value>
+                                </ui:GetValue>
+                                <ui:OpenBrowser BrowserType="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="434,296.666666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Url="[AddressdisplayControl]">
+                                  <ui:OpenBrowser.Body>
+                                    <ActivityAction x:TypeArguments="x:Object">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                                      </ActivityAction.Argument>
+                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'IMG'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_39" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                          <ui:Click.CursorPosition>
+                                            <ui:CursorPosition Position="Center">
+                                              <ui:CursorPosition.OffsetX>
+                                                <InArgument x:TypeArguments="x:Int32" />
+                                              </ui:CursorPosition.OffsetX>
+                                              <ui:CursorPosition.OffsetY>
+                                                <InArgument x:TypeArguments="x:Int32" />
+                                              </ui:CursorPosition.OffsetY>
+                                            </ui:CursorPosition>
+                                          </ui:Click.CursorPosition>
+                                          <ui:Click.Target>
+                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1de7abc78935cd474a74410208b6c7a1" Selector="&lt;webctrl aaname='Preparar Página para Impressão' tag='IMG' /&gt;">
+                                              <ui:Target.TimeoutMS>
+                                                <InArgument x:TypeArguments="x:Int32" />
+                                              </ui:Target.TimeoutMS>
+                                              <ui:Target.WaitForReady>
+                                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                                              </ui:Target.WaitForReady>
+                                            </ui:Target>
+                                          </ui:Click.Target>
+                                        </ui:Click>
+                                      </Sequence>
+                                    </ActivityAction>
+                                  </ui:OpenBrowser.Body>
+                                </ui:OpenBrowser>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:WindowScope.Body>
+                        </ui:WindowScope>
+                      </Sequence>
                       <Assign sap:VirtualizedContainerService.HintSize="1066.66666666667,62" sap2010:WorkflowViewState.IdRef="Assign_6">
                         <Assign.To>
                           <OutArgument x:TypeArguments="ui:GenericValue">[Numero_da_certidao]</OutArgument>
@@ -844,20 +923,7 @@
                           <InArgument x:TypeArguments="ui:GenericValue">[Numero_da_certidao+"__"+Validade]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <ui:TakeScreenshot WaitBefore="{x:Null}" DisplayName="Take Screenshot 'DIV  PRINCIPAL'" sap:VirtualizedContainerService.HintSize="1066.66666666667,106" sap2010:WorkflowViewState.IdRef="TakeScreenshot_1" Screenshot="[Print]">
-                        <ui:TakeScreenshot.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="d1c99f7d70679653404415711eda9e87" Selector="&lt;html title='Emissão de 2ª via de Certidão' /&gt;&lt;webctrl id='PRINCIPAL' tag='DIV' /&gt;">
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                            <ui:Target.WaitForReady>
-                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                            </ui:Target.WaitForReady>
-                          </ui:Target>
-                        </ui:TakeScreenshot.Target>
-                      </ui:TakeScreenshot>
                       <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="1066.66666666667,85.3333333333333" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="C:\uipath_robots" />
-                      <ui:SaveImage DisplayName="Save Image" FileName="C:\uipath_robots\Untitled.png" sap:VirtualizedContainerService.HintSize="1066.66666666667,92" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[Print]" />
                       <Assign sap:VirtualizedContainerService.HintSize="1066.66666666667,62" sap2010:WorkflowViewState.IdRef="Assign_8">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[File]</OutArgument>
