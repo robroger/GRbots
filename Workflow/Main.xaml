@@ -63,7 +63,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 296.7,107.5 296.7,109.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <State x:Name="__ReferenceID0" DisplayName="Process" sap:VirtualizedContainerService.HintSize="623,1388" sap2010:WorkflowViewState.IdRef="State_3">
+      <State x:Name="__ReferenceID0" DisplayName="Process" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_3">
         <State.Entry>
           <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="577,974" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <TryCatch.Try>
@@ -212,7 +212,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <Transition.Condition>[Exceptions Is Nothing And fechar = False]</Transition.Condition>
             <Transition.To>
-              <State x:Name="__ReferenceID1" DisplayName="Decision" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_2">
+              <State x:Name="__ReferenceID1" DisplayName="Decision" sap:VirtualizedContainerService.HintSize="609,1191" sap2010:WorkflowViewState.IdRef="State_2">
                 <State.Entry>
                   <Sequence sap:VirtualizedContainerService.HintSize="563,804" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <sap:WorkflowViewStateService.ViewState>
@@ -263,7 +263,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <State.Transitions>
-                  <Transition DisplayName="No" sap:VirtualizedContainerService.HintSize="450,507" sap2010:WorkflowViewState.IdRef="Transition_1">
+                  <Transition DisplayName="No" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="Transition_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:PointCollection x:Key="ConnectorLocation">290,290.5 290,359.5</av:PointCollection>
@@ -271,7 +271,7 @@
                         <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Transition.Condition>[Outra_certidao = "Não"]</Transition.Condition>
+                    <Transition.Condition>[Outra_certidao IsNot "Sim"]</Transition.Condition>
                     <Transition.To>
                       <State x:Name="__ReferenceID2" DisplayName="Final State" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                         <sap:WorkflowViewStateService.ViewState>
