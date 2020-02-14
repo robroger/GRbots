@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>220,273</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>549,1119</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -53,27 +53,29 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Aqui os principais workflows necessários para o processo serão invocados.&#xA;&#xA;Pré-Condições: Não há.&#xA;&#xA;Pós-Condições: O navegador Internet Explorer deverá ser fechado após o fim da tarefa." DisplayName="Sequencia Principal" sap:VirtualizedContainerService.HintSize="379,658" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Aqui os principais workflows necessários para o processo serão invocados.&#xA;&#xA;Pré-Condições: Não há.&#xA;&#xA;Pós-Condições: O navegador Internet Explorer deverá ser fechado após o fim da tarefa." DisplayName="Sequencia Principal" sap:VirtualizedContainerService.HintSize="529,1059" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="caminho_download" />
       <Variable x:TypeArguments="x:String" Name="data" />
+      <Variable x:TypeArguments="x:Boolean" Name="file_exists" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invocar Abrir_Website" sap:VirtualizedContainerService.HintSize="337,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Certidao_Trabalhista/Source/Abrir_Website.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invocar Abrir_Website" sap:VirtualizedContainerService.HintSize="487,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Certidao_Trabalhista/Source/Abrir_Website.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="x:String" x:Key="out_CaminhoDownload">[caminho_download]</OutArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_Data">[data]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Assign sap:VirtualizedContainerService.HintSize="337,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="487,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_Caminho]</OutArgument>
       </Assign.To>
@@ -81,7 +83,7 @@
         <InArgument x:TypeArguments="x:String">[caminho_download]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="337,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap:VirtualizedContainerService.HintSize="487,60" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_Nome]</OutArgument>
       </Assign.To>
@@ -89,7 +91,7 @@
         <InArgument x:TypeArguments="x:String">["Certidão Negativa de Débitos Trabalhistas "+data]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="337,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign sap:VirtualizedContainerService.HintSize="487,60" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_Arquivo]</OutArgument>
       </Assign.To>
@@ -97,6 +99,22 @@
         <InArgument x:TypeArguments="x:String">[caminho_download]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Finalizar processo" sap:VirtualizedContainerService.HintSize="337,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Iexplore" />
+    <ui:PathExists DisplayName="Path Exists" Exists="[file_exists]" sap:VirtualizedContainerService.HintSize="487,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[out_Arquivo]" PathType="File" />
+    <If Condition="[file_exists]" sap:VirtualizedContainerService.HintSize="487,324" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Iexplore" />
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="242,176" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Delay DisplayName="Delay" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+          <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="Iexplore" />
+        </Sequence>
+      </If.Else>
+    </If>
   </Sequence>
 </Activity>
