@@ -7,7 +7,9 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
+
   <sap:VirtualizedContainerService.HintSize>708,7162.66666666667</sap:VirtualizedContainerService.HintSize>
+
   <sap2010:WorkflowViewState.IdRef>Atualizaçao_Estadual_Distrital_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -64,7 +66,9 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
+
   <Sequence DisplayName="Atualizaçao_Estadual_Distrital" sap:VirtualizedContainerService.HintSize="688,7102.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="CNPJ" />
       <Variable x:TypeArguments="x:String" Default="Certidão da Dívida Ativa" Name="Certidao_divida_ativa" />
@@ -77,19 +81,31 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+
     <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="646,7010.66666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://ww1.receita.fazenda.df.gov.br/cidadao/certidoes/Certidao">
+
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="612,6912" sap2010:WorkflowViewState.IdRef="Sequence_20">
+
+
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="570,10438" sap2010:WorkflowViewState.IdRef="Sequence_2">
+
+            <Sequence.Variables>
+              <Variable x:TypeArguments="ui:Browser" Name="Atualizar_pagina" />
+              <Variable x:TypeArguments="ui:Browser" Name="Browser" />
+            </Sequence.Variables>
+
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+
             <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="570,6554" sap2010:WorkflowViewState.IdRef="Sequence_2">
+
               <Sequence.Variables>
                 <Variable x:TypeArguments="ui:Browser" Name="Atualizar_pagina" />
                 <Variable x:TypeArguments="ui:Browser" Name="Browser" />
